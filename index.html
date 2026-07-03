@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Caseirinhos Decorados - Mari Confeiteira</title>
+    <!-- Tailwind CSS para estilização moderna e rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat (Geométrica moderna) e Playfair Display (Serifa elegante) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        handwritten: ['Sacramento', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            pinkLight: '#FFF0F2',
+                            pinkMedium: '#FAD5DA',
+                            pinkDark: '#E86D80',
+                            charcoal: '#222222',
+                            greenCTA: '#19D668',
+                            greenCTA_hover: '#15BD5B',
+                            gold: '#D4AF37',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos finos adicionais */
+        .pink-outline-shadow {
+            box-shadow: 0 10px 30px -10px rgba(232, 109, 128, 0.2);
+        }
+        .custom-dashed-border {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23E86D80FF' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-charcoal font-sans antialiased">
+
+    <!-- URGENCY TOP BAR WITH DYNAMIC DATE -->
+    <div class="bg-[#E86D80] text-white text-xs sm:text-sm font-bold text-center py-2 px-4 tracking-wide relative z-50">
+        ⚡ ATENÇÃO: O preço com desconto de lançamento expira hoje, dia <span id="current-expiry-date" class="underline"></span>! Aproveite agora.
+    </div>
+
+    <!-- HERO SECTION (imagem1.webp, imagem2.webp, imagem3.webp, imagem4.webp) -->
+    <header class="relative bg-[#FFF2F4] py-6 sm:py-10 md:py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <!-- Grid de 12 colunas mantido horizontal em todas as telas -->
+            <div class="grid grid-cols-12 gap-2 sm:gap-6 lg:gap-8 items-center">
+                
+                <!-- Coluna Esquerda: Texto de Venda (col-span-5) -->
+                <div class="col-span-5 z-10 space-y-2 sm:space-y-6">
+                    <!-- Logo Recriado com Tamanho Fluido -->
+                    <div class="inline-block">
+                        <span class="block text-[6px] sm:text-xs font-black tracking-[0.25em] text-[#E86D80] uppercase">CURSO</span>
+                        <div class="relative mt-[-2px] sm:mt-[-4px]">
+                            <span class="font-sans font-black text-sm sm:text-4xl lg:text-5xl text-[#E86D80] block tracking-tight uppercase leading-none">caseirinhos</span>
+                            <span class="font-handwritten text-sm sm:text-4xl lg:text-5xl text-[#BC8448] block leading-none mt-0.5 sm:mt-1 transform rotate-[-4deg] origin-left">decorados</span>
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-[9px] sm:text-xl lg:text-2xl font-extrabold text-[#374151] leading-tight tracking-tight uppercase">
+                        Você vai transformar caseirinhos simples em <span class="text-[#E86D80]">decorados impecáveis</span>, que encantam à primeira vista
+                    </h1>
+                    
+                    <p class="text-[7px] sm:text-sm font-bold text-[#E86D80] uppercase tracking-wider leading-none">
+                        e aumentam muito o valor dos seus bolos!
+                    </p>
+                    
+                    <div class="pt-1 sm:pt-4">
+                        <span class="block text-[6px] sm:text-xs font-bold text-gray-500 mb-1 sm:mb-2 uppercase tracking-widest leading-none">Apostila por apenas R$ 10 reais</span>
+                        <a href="#precos" class="inline-block w-full text-center py-1.5 px-2 sm:py-4 sm:px-8 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-[8px] sm:text-sm lg:text-base rounded-lg sm:rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 tracking-wider uppercase leading-snug">
+                            Garantir minha vaga com desconto!
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Coluna Central: Imagem Principal de Mari (col-span-4) -->
+                <div class="col-span-4 flex justify-center z-10">
+                    <div class="relative p-1 sm:p-3 bg-white rounded-xl sm:rounded-3xl pink-outline-shadow border border-2 sm:border-4 border-[#FAD5DA] w-full">
+                        <img src="imagem1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Mari+Confeiteira'" alt="Mari Confeiteira" class="w-full h-auto rounded-lg sm:rounded-2xl">
+                    </div>
+                </div>
+                
+                <!-- Coluna Direita: Stack de Três Fotos dos Caseirinhos (col-span-3) -->
+                <div class="col-span-3 flex flex-col justify-between space-y-1.5 sm:space-y-4">
+                    <!-- Bolo 1: Chocolate com calda Rosa -->
+                    <div class="p-1 sm:p-2 bg-white rounded-lg sm:rounded-2xl pink-outline-shadow border sm:border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
+                        <img src="imagem2.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/E86D80?text=Bolo+Rosa'" alt="Bolo Decorado" class="w-full h-auto rounded-md sm:rounded-xl">
+                    </div>
+                    
+                    <!-- Bolo 2: Chocolate com Rendilhado Branco -->
+                    <div class="p-1 sm:p-2 bg-white rounded-lg sm:rounded-2xl pink-outline-shadow border sm:border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
+                        <img src="imagem3.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/3D2513?text=Bolo+Rendilhado'" alt="Bolo Decorado" class="w-full h-auto rounded-md sm:rounded-xl">
+                    </div>
+                    
+                    <!-- Bolo 3: Azul Festivo com Vela -->
+                    <div class="p-1 sm:p-2 bg-white rounded-lg sm:rounded-2xl pink-outline-shadow border sm:border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
+                        <img src="imagem4.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/0EA5E9?text=Bolo+Azul'" alt="Bolo Decorado" class="w-full h-auto rounded-md sm:rounded-xl">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Detalhe decorativo orgânico no fundo -->
+        <div class="absolute bottom-0 right-0 left-0 h-4 sm:h-8 bg-white" style="border-radius: 100% 100% 0 0;"></div>
+    </header>
+
+    <!-- INTRO SECTION 2 (imagem5.webp) -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                
+                <!-- Imagem do Bolo de Cenoura (imagem5.webp) -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="p-2 bg-white rounded-3xl pink-outline-shadow border-2 border-[#FFF0F2] max-w-sm w-full">
+                        <img src="imagem5.webp" onerror="this.onerror=null; this.src='https://placehold.co/300x350/FFF2F4/EA580C?text=Bolo+Cenoura'" alt="Bolo de Cenoura Decorado" class="w-full h-auto rounded-2xl">
+                    </div>
+                </div>
+                
+                <!-- Copy Persuasiva -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-charcoal leading-tight">
+                        Todo mundo adora um bolo caseirinho...
+                    </h2>
+                    <p class="text-lg font-bold text-[#E86D80] tracking-wide italic">
+                        ...e quem sabe se destacar, sai na frente!
+                    </p>
+                    <p class="text-base sm:text-lg text-gray-700 leading-relaxed font-medium">
+                        Por isso, que os <strong class="text-brand-charcoal font-extrabold">Caseirinhos Decorados</strong> são a melhor opção pra chamar atenção e aumentar muito as suas vendas de confeitaria!
+                    </p>
+                    <div class="pt-2">
+                        <a href="#precos" class="inline-flex items-center space-x-2 text-[#E86D80] font-black text-sm tracking-widest uppercase group">
+                            <span>Quero me destacar agora</span>
+                            <span class="group-hover:translate-x-2 transition-transform duration-300">➔</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT YOU WILL LEARN SECTION (REPLACED CAROUSEL FROM image_94b5e0.png) -->
+    <section class="py-16 bg-[#FFF2F4]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <h2 class="text-center text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mb-4">
+                O que você vai aprender com a Mari:
+            </h2>
+            <p class="text-center text-sm font-bold text-gray-500 uppercase tracking-wider mb-12 max-w-2xl mx-auto">
+                Tudo o que você precisa dominar, do absoluto zero ao acabamento profissional perfeito.
+            </p>
+            
+            <!-- Grid de Tópicos Estáticos -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- CARD 1: MASSAS -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 pink-outline-shadow border border-pink-100 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="space-y-6">
+                        <!-- Icon & Step Badge -->
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-[#FFF0F2] text-[#E86D80] text-xs font-black uppercase tracking-widest rounded-full">Passo 1</span>
+                            <div class="w-12 h-12 bg-[#FFF2F4] rounded-full flex items-center justify-center text-2xl">🥣</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-black text-brand-charcoal">Massas Fofinhas & Estruturadas</h3>
+                            <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                O segredo científico de massas que sustentam decorações sem quebrar ou ressecar.
+                            </p>
+                        </div>
+
+                        <hr class="border-pink-100">
+
+                        <ul class="space-y-3 font-medium text-sm text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Cenoura super fofinho</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Chocolate estruturado</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Fubá com textura caseira irresistível</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Laranja & Limão aromáticos</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Método de assamento plano sem criar "barriga"</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD 2: COBERTURAS -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 pink-outline-shadow border border-pink-100 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="space-y-6">
+                        <!-- Icon & Step Badge -->
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-[#FFF0F2] text-[#E86D80] text-xs font-black uppercase tracking-widest rounded-full">Passo 2</span>
+                            <div class="w-12 h-12 bg-[#FFF2F4] rounded-full flex items-center justify-center text-2xl">🍯</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-black text-brand-charcoal">Coberturas Porcelana & Fondant</h3>
+                            <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                Caldas que dão aquele efeito brilhoso profissional, firme ao toque mas macio ao cortar.
+                            </p>
+                        </div>
+
+                        <hr class="border-pink-100">
+
+                        <ul class="space-y-3 font-medium text-sm text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Porcelana de Ninho clássica e cremosa</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Efeito Porcelana Acetinada para brilho extra</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Fondant Iceberg estável e sedoso</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Ponto ideal para o caimento perfeito das caldas</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Conservação e validade das coberturas</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD 3: DECORAÇÃO -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 pink-outline-shadow border border-pink-100 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="space-y-6">
+                        <!-- Icon & Step Badge -->
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-[#FFF0F2] text-[#E86D80] text-xs font-black uppercase tracking-widest rounded-full">Passo 3</span>
+                            <div class="w-12 h-12 bg-[#FFF2F4] rounded-full flex items-center justify-center text-2xl">🎨</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-black text-brand-charcoal">Decorações de Luxo & Arte</h3>
+                            <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                Detalhes e pinturas à mão que diferenciam o seu bolo de qualquer caseirinho simples.
+                            </p>
+                        </div>
+
+                        <hr class="border-pink-100">
+
+                        <ul class="space-y-3 font-medium text-sm text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bordados delicados e Rendas coloridas</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Rendas sobre a cobertura de porcelana</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Flores volumosas lindas com bicos de confeitar</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Pintura aquarelada delicada com corações e poás</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Modelagem rápida de apliques de Pasta Americana</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM CURRICULUM SECTION (REFACTORED TO HIGH-END EDITORIAL COLUMNS - image_954069.png) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Conteúdo Completo</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mt-2">
+                    GRADE DETALHADA DO CURSO
+                </h2>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grelha Editorial Elegante e Altamente Legível: Sem blocos pesados, excelente contraste -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                
+                <!-- Coluna 1: DECORAÇÕES -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4 text-center lg:text-left">
+                        <span class="text-xs font-extrabold text-[#E86D80] uppercase tracking-widest">(Vídeo Aulas)</span>
+                        <h3 class="text-xl font-black text-brand-charcoal mt-1 tracking-wider">DECORAÇÕES</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bordado / Renda colorida</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Renda sobre porcelana</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Flores volumosas com bicos</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura aquarelada</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura Floral contorno</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura delicada corações e poá</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Apliques Pasta Americana (flor, estrela, coração)</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura metalizada</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 2: COBERTURAS -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4 text-center lg:text-left">
+                        <span class="text-xs font-extrabold text-[#E86D80] uppercase tracking-widest">(Vídeo Aulas)</span>
+                        <h3 class="text-xl font-black text-brand-charcoal mt-1 tracking-wider">COBERTURAS</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Porcelana ninho</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Porcelana ninho acetinada</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Fondant Iceberg</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: RECEITAS MASSAS -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4 text-center lg:text-left">
+                        <span class="text-xs font-extrabold text-[#E86D80] uppercase tracking-widest">(Apostila Completa)</span>
+                        <h3 class="text-xl font-black text-brand-charcoal mt-1 tracking-wider">RECEITAS MASSAS</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Cenoura</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Chocolate</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Fubá</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Laranja</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Limão</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERABLES / FEATURES SECTION (image_9440e8.png) -->
+    <section class="py-16 bg-[#FFF2F4]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <h2 class="text-center text-3xl font-black text-brand-charcoal uppercase tracking-widest mb-12">
+                Você vai ganhar:
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Item 1: Aulas em HD -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-gray-300 flex flex-col items-center text-center space-y-6 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div class="w-20 h-20 text-brand-charcoal">
+                        <!-- Ícone de Tablet / Tela HD -->
+                        <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                            <text x="12" y="11" font-family="Montserrat" font-size="4" font-weight="black" fill="currentColor" text-anchor="middle">FULL HD</text>
+                        </svg>
+                    </div>
+                    <p class="text-lg font-bold text-brand-charcoal leading-snug">
+                        Aulas gravadas em alta qualidade com todos os detalhes
+                    </p>
+                </div>
+
+                <!-- Item 2: Apostila -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-gray-300 flex flex-col items-center text-center space-y-6 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div class="w-20 h-20 text-brand-charcoal">
+                        <!-- Ícone de Livro Aberto -->
+                        <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <p class="text-lg font-bold text-brand-charcoal leading-snug">
+                        Apostila completa, com detalhes para facilitar sua vida
+                    </p>
+                </div>
+
+                <!-- Item 3: Tempo de Acesso -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-gray-300 flex flex-col items-center text-center space-y-6 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div class="w-20 h-20 text-brand-charcoal">
+                        <!-- Ícone de Relógio com Seta de Retorno -->
+                        <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                            <polyline points="12 7 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <p class="text-lg font-bold text-brand-charcoal leading-snug">
+                        2 anos de acesso <br><span class="text-[#E86D80] text-sm font-black uppercase tracking-wider">(só pras 100 primeiras vagas)</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTEGRATED BONUS SECTION (imagem6.webp & image_959a7e.png) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Oportunidade Única</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-[#E86D80] uppercase tracking-widest mt-2">
+                    E OLHA ESSE BÔNUS!!!
+                </h2>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <!-- Linha Clássica com o bolo de bônus original (image_944105.jpg) -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center mb-16">
+                
+                <!-- Copy Persuasiva das Parcerias -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-[#374151] leading-snug tracking-tight">
+                        De <span class="text-[#E86D80]">BÔNUS</span>, você vai aprender minhas estratégias para vender muito!
+                    </h3>
+                    
+                    <p class="text-base text-gray-600 leading-relaxed font-medium">
+                        Como fechar parcerias com facilidade pra fazer degustações e receber muitos orçamentos e pedidos!
+                    </p>
+                </div>
+                
+                <!-- Ilustração do Bolo do Bônus (imagem6.webp) -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="p-2 bg-white rounded-3xl pink-outline-shadow border-2 border-[#FFF0F2] max-w-sm w-full">
+                        <img src="imagem6.webp" onerror="this.onerror=null; this.src='https://placehold.co/300x300/FFF2F4/FF8CA3?text=Bolo+Bonus'" alt="Bolo Bonus" class="w-full h-auto rounded-2xl">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Lista de Bônus adicionados de forma complementar (Fiel ao print image_959a7e.png) -->
+            <div class="space-y-6">
+                
+                <!-- Bônus 1: Script de Vendas Automáticas -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 border border-pink-100 pink-outline-shadow flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FFF2F4] flex items-center justify-center text-3xl flex-shrink-0">
+                        💬
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg sm:text-xl font-extrabold text-brand-charcoal leading-snug">Script de Vendas Automáticas</h4>
+                        <p class="text-sm font-medium text-gray-500 leading-relaxed">
+                            Mensagens persuasivas prontas. É só copiar, colar no WhatsApp e ver os pedidos chegando.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bônus 2: Pack de Adesivos Profissionais -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 border border-pink-100 pink-outline-shadow flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FFF2F4] flex items-center justify-center text-3xl flex-shrink-0">
+                        🎨
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg sm:text-xl font-extrabold text-brand-charcoal leading-snug">Pack de Adesivos Profissionais</h4>
+                        <p class="text-sm font-medium text-gray-500 leading-relaxed">
+                            Templates no Canva para imprimir e colar nos baldes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bônus 3: Calculadora de Lucro -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 border border-pink-100 pink-outline-shadow flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FFF2F4] flex items-center justify-center text-3xl flex-shrink-0">
+                        📊
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg sm:text-xl font-extrabold text-brand-charcoal leading-snug">Calculadora de Lucro</h4>
+                        <p class="text-sm font-medium text-gray-500 leading-relaxed">
+                            Planilha simples onde você digita os ingredientes e ela te dá o preço exato.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bônus 4: 8 Cursos Extras Gratuitos (Em destaque de alto relevo) -->
+                <div class="bg-[#FFF5F6] border-2 border-[#E86D80] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-4xl flex-shrink-0 shadow-sm">
+                        🎁
+                    </div>
+                    <div class="space-y-4 w-full">
+                        <h4 class="text-xl sm:text-2xl font-black text-[#BC3C53] uppercase tracking-wider leading-none">
+                            8 CURSOS EXTRAS GRATUITOS
+                        </h4>
+                        
+                        <!-- Coluna Dupla para as aulas extras para manter organizado -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-bold text-[#BC3C53]">
+                            <ul class="space-y-2">
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Bolos de Pote</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Brigadeiros</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Caseirinhos</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Geladinho</span>
+                                </li>
+                            </ul>
+                            <ul class="space-y-2">
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Copo da Felicidade</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Trufas Lucrativas</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Brownie</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Ovos de Páscoa</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center pt-10">
+                <a href="#precos" class="inline-block px-8 py-4 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 tracking-wider uppercase">
+                    Garantir Todos os Bônus Gratuitos
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (WHATSAPP CONVERSATIONS STYLE) -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Resultados Reais</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mt-2">
+                    QUEM FAZ, VENDE E RECOMENDA!
+                </h2>
+                <p class="text-sm font-bold text-gray-400 uppercase tracking-wider mt-2">Veja os resultados das nossas alunas</p>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 pink-outline-shadow flex flex-col justify-between space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-[#E86D80] text-white font-bold flex items-center justify-center text-lg shadow-sm">
+                            AD
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-brand-charcoal text-sm">Amanda Dias</h4>
+                            <span class="text-xs text-gray-400 font-bold">Aluna do Curso</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed italic">
+                        "Mari, a sua apostila de R$ 10 é simplesmente um absurdo de boa! Fiz a receita de bolo de cenoura ontem para testar, fiz a cobertura de ninho e decorei com flores bem simples. Vendi as 4 unidades em menos de 1 hora no meu trabalho! Muito obrigada por descomplicar!"
+                    </p>
+                    <div class="flex items-center space-x-1 text-yellow-400">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 pink-outline-shadow flex flex-col justify-between space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-[#BC8448] text-white font-bold flex items-center justify-center text-lg shadow-sm">
+                            CL
+                        </div>
+                        <div>
+                            <h4 class="font-extrabold text-brand-charcoal text-sm">Clara Lemos</h4>
+                            <span class="text-xs text-gray-400 font-bold">Aluna Kit Premium</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed italic">
+                        "Comprei o Kit Premium de R$ 27 com medo de ser mais do mesmo, mas as vídeo aulas são fantásticas! A técnica de pintura aquarelada deixou meus caseirinhos com cara de vitrine de shopping. Os clientes nem choram preço mais, compram pela beleza."
+                    </p>
+                    <div class="flex items-center space-x-1 text-yellow-400">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE SECTION (imagem7.webp) -->
+    <section class="py-16 bg-[#FFF2F4] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8 z-10 relative">
+            <h2 class="text-3xl font-black text-brand-charcoal uppercase tracking-widest">
+                Garantia Total!
+            </h2>
+            
+            <!-- Selo Dourado 100% Garantido (imagem7.webp) -->
+            <div class="flex justify-center py-4">
+                <img src="imagem7.webp" onerror="this.onerror=null; this.src='https://placehold.co/160x160/FFF2F4/D97706?text=Selo+Garantia'" alt="Selo 100% Garantido" class="w-36 h-36">
+            </div>
+
+            <p class="text-lg sm:text-xl font-bold text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                Você pode testar o curso por 7 dias e se não estiver feliz, te reembolsamos 100% do seu dinheiro, sem burocracia!
+            </p>
+        </div>
+    </section>
+
+    <!-- TWO OFFERS PRICING SECTION (REPLACED BATCHES FROM image_95ad25.png) -->
+    <section id="precos" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <h2 class="text-center text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mb-4">
+                O desconto é um Presentão pra você!
+            </h2>
+            <p class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-16">
+                Escolha o plano ideal para iniciar hoje
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+                
+                <!-- OFERTA 1: APENAS APOSTILA (R$ 10) -->
+                <div class="bg-white rounded-3xl border-2 border-gray-200 p-8 flex flex-col justify-between space-y-8 relative transform hover:scale-102 transition-transform duration-300 shadow-lg">
+                    
+                    <div class="text-center space-y-4">
+                        <span class="block text-xl font-black uppercase tracking-widest text-gray-500">APENAS APOSTILA</span>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Leve apenas as receitas escritas</p>
+                        
+                        <hr class="border-gray-100">
+
+                        <div class="space-y-1 py-4">
+                            <span class="block text-sm text-gray-400 font-bold line-through">De R$ 97</span>
+                            <div class="flex items-center justify-center space-x-2">
+                                <span class="text-2xl font-black text-brand-charcoal">R$</span>
+                                <span class="text-6xl font-black text-brand-charcoal tracking-tight">10</span>
+                            </div>
+                            <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider">pagamento único sem mensalidades</span>
+                        </div>
+
+                        <hr class="border-gray-100">
+                    </div>
+
+                    <!-- Lista de Benefícios (O que tem na apostila de 10) -->
+                    <ul class="space-y-4 font-bold text-sm text-gray-500">
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>Apostila Completa de Receitas</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>Segredos das 5 Massas de Mari</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>Porcelana de Ninho & Fondant</span>
+                        </li>
+                        <li class="text-gray-300 flex items-center space-x-3 line-through">
+                            <span>✗</span>
+                            <span>Vídeo Aulas de Decoração</span>
+                        </li>
+                        <li class="text-gray-300 flex items-center space-x-3 line-through">
+                            <span>✗</span>
+                            <span>Estratégias de Parcerias & Vendas</span>
+                        </li>
+                        <li class="text-gray-300 flex items-center space-x-3 line-through">
+                            <span>✗</span>
+                            <span>Todos os 4 Super Bônus Inclusos</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTAs Interativos -->
+                    <div class="space-y-3 pt-4">
+                        <button onclick="openCheckout('Apenas Apostila', 10)" class="w-full text-center py-4 bg-gray-700 hover:bg-brand-charcoal text-white font-extrabold text-sm rounded-2xl shadow-lg transition-colors duration-300 tracking-wider uppercase">
+                            Quero Só a Apostila (R$ 10)
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- OFERTA 2: KIT PREMIUM COMPLETO (R$ 27) -->
+                <div class="bg-white rounded-3xl border-4 border-[#FF1493] p-8 flex flex-col justify-between space-y-8 relative transform hover:scale-102 transition-transform duration-300 shadow-[0_0_25px_rgba(255,20,147,0.4)] z-10">
+                    
+                    <!-- Badge de Melhor Opção -->
+                    <div class="absolute top-0 right-1/2 transform translate-x-1/2 -translate-y-1/2 bg-[#FF1493] text-white text-xs font-black uppercase px-6 py-2 rounded-full tracking-widest shadow-[0_0_10px_rgba(255,20,147,0.5)]">
+                        RECOMENDADO
+                    </div>
+
+                    <div class="text-center space-y-4">
+                        <span class="block text-2xl font-black uppercase tracking-widest text-[#E86D80]">KIT PREMIUM</span>
+                        <p class="text-xs font-bold text-[#E86D80] uppercase tracking-wider font-extrabold">A experiência completa de confeitaria!</p>
+                        
+                        <hr class="border-brand-charcoal opacity-20">
+
+                        <div class="space-y-1 py-4">
+                            <span class="block text-sm text-gray-400 font-bold line-through">De R$ 297</span>
+                            <div class="flex items-center justify-center space-x-2">
+                                <span class="text-2xl font-black text-brand-charcoal">R$</span>
+                                <span class="text-6xl font-black text-brand-charcoal tracking-tight">27</span>
+                            </div>
+                            <span class="block text-xs font-bold text-[#E86D80] uppercase tracking-wider font-extrabold">tudo liberado imediatamente</span>
+                        </div>
+
+                        <hr class="border-brand-charcoal opacity-20">
+                    </div>
+
+                    <!-- Lista de Benefícios do Kit Completo de 27 -->
+                    <ul class="space-y-4 font-bold text-sm text-brand-charcoal">
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>2 ANOS DE ACESSO COMPLETO</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>GRAVAÇÃO DAS AULAS HIGH QUALITY</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>APOSTILA COMPLETA EXCLUSIVA</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">★</span>
+                            <span>Bônus: Script de Vendas Automáticas</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">★</span>
+                            <span>Bônus: Pack de Adesivos Profissionais</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">★</span>
+                            <span>Bônus: Calculadora de Lucro Completa</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">🎁</span>
+                            <span>Bônus: 8 Cursos Extras Gratuitos</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTAs Interativos -->
+                    <div class="space-y-3 pt-4">
+                        <button onclick="openCheckout('Kit Premium Completo', 27)" class="w-full text-center py-4 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-sm rounded-2xl shadow-lg transition-colors duration-300 tracking-wider uppercase">
+                            Garantir Kit Premium Completo
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ATTENTION SECTION (imagem8.webp) -->
+    <section class="py-16 bg-[#FFF2F4]">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                
+                <!-- Ilustração do Bolo Rendilhado (imagem8.webp) -->
+                <div class="md:col-span-5 flex justify-center order-last md:order-first">
+                    <div class="p-2 bg-white rounded-3xl pink-outline-shadow border-2 border-[#FFF0F2] max-w-sm w-full">
+                        <img src="imagem8.webp" onerror="this.onerror=null; this.src='https://placehold.co/300x300/FFF2F4/3D2513?text=Bolo+Atencao'" alt="Bolo Decorado" class="w-full h-auto rounded-2xl">
+                    </div>
+                </div>
+
+                <!-- Conteúdo de Atenção -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <h2 class="text-3xl font-black text-brand-charcoal uppercase tracking-wider">
+                        Leia com atenção!
+                    </h2>
+                    <p class="text-lg font-semibold text-gray-700 leading-relaxed">
+                        O bolo caseirinho é a <strong class="text-[#E86D80] font-black">melhor porta de entrada</strong> para quem quer começar a faturar vendendo bolos artesanais e doces diferenciados.
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed font-medium">
+                        É um produto muito mais em conta, que todo mundo adora e, quando ele vem decorado com requinte e profissionalismo... <span class="text-[#E86D80] font-black uppercase">aí é sucesso absoluto de vendas!</span>
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed font-medium">
+                        Com as técnicas exclusivas do meu curso de Caseirinhos Decorados e as minhas estratégias, você terá absolutamente tudo em mãos para vender muitos bolos semanalmente.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (FREQUENTLY ASKED QUESTIONS) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Dúvidas Frequentes</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mt-2">
+                    PERGUNTAS FREQUENTES
+                </h2>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Pergunta 1 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(1)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>Como eu recebo o acesso ao material?</span>
+                        <span id="faq-icon-1" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-1" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        O envio é feito de forma 100% automática e imediata no seu e-mail e WhatsApp logo após a confirmação do pagamento. Pagamentos via PIX ou Cartão liberam em menos de 2 minutos.
+                    </div>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(2)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>Preciso ter batedeira ou utensílios caros?</span>
+                        <span id="faq-icon-2" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-2" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        De forma alguma! O curso foi totalmente estruturado para quem está começando da cozinha de casa. Você só vai precisar de utensílios básicos que provavelmente já tem ou encontra baratinho em qualquer mercado.
+                    </div>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(3)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>A apostila é em formato digital?</span>
+                        <span id="faq-icon-3" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-3" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        Sim! É uma Apostila Completa digital super ilustrada e organizada para que você possa abrir no seu celular, tablet ou computador na hora de confeitar, e se quiser, também pode imprimir de forma rápida.
+                    </div>
+                </div>
+
+                <!-- Pergunta 4 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(4)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>O pagamento é seguro?</span>
+                        <span id="faq-icon-4" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-4" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        Sim, 100% seguro! Seus dados de pagamento são protegidos por criptografia de ponta de nível bancário e processados de forma rápida e segura.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT THE AUTHOR SECTION (imagem9.webp, imagem10.webp) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8">
+            
+            <!-- Foto Circular Ilustrativa com Nome Curvo -->
+            <div class="relative inline-block">
+                <!-- Nome em curva em cima -->
+                <div class="absolute top-[-30px] right-1/2 transform translate-x-1/2 w-48 text-center">
+                    <span class="font-handwritten text-4xl text-brand-charcoal block tracking-wide">Mari Confeiteira ❤️</span>
+                </div>
+                <!-- Círculo com Ilustração da Mari (imagem9.webp) -->
+                <div class="w-48 h-48 rounded-full border-4 border-[#FFF0F2] pink-outline-shadow overflow-hidden bg-[#FFF2F4] mx-auto mt-6">
+                    <img src="imagem9.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x200/FFF2F4/E86D80?text=Mari+Profile'" alt="Mari Confeiteira" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Texto de Biografia Centrado -->
+            <div class="space-y-6 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-black text-brand-charcoal">Mari Confeiteira</h3>
+                <p class="text-xs font-bold text-[#E86D80] uppercase tracking-widest">Apaixonada por Descomplicar a Confeitaria</p>
+                
+                <div class="text-sm sm:text-base text-gray-600 leading-relaxed font-medium space-y-4">
+                    <p>
+                        Empreendedora confeiteira desde 2011 e mente criativa por trás da <strong class="text-brand-charcoal font-bold">CAKE ME Mari</strong> em Taubaté - SP. Ficou amplamente conhecida no mercado de doces por descomplicar processos complexos para as confeiteiras em início de jornada.
+                    </p>
+                    <p>
+                        Este treinamento de <strong class="text-[#E86D80] font-black">Caseirinhos Decorados</strong> foi totalmente desenhado para colocar o seu negócio no trilho certo, oferecendo receitas testadas, decorações encantadoras e táticas expressas de vendas para quem deseja faturar no mercado de forma rápida, barata e sem dor de cabeça!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Logo Redondo de Encerramento (imagem10.webp) -->
+            <div class="pt-10 flex justify-center">
+                <div class="w-20 h-20 rounded-full border-2 border-pink-200 p-1 bg-white shadow-sm flex items-center justify-center overflow-hidden">
+                    <img src="imagem10.webp" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFF2F4/E86D80?text=Mari+Logo'" alt="Mari Logo" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL FOOTER (Required by Ads Platform Regulations) -->
+    <footer class="bg-brand-charcoal text-white py-12 text-xs font-medium border-t border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6">
+            <p class="text-gray-400">
+                © <span id="current-year"></span> Mari Confeiteira - Todos os direitos reservados.
+            </p>
+            <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                Este site não faz parte do site do Facebook ou Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de forma alguma. FACEBOOK é uma marca comercial da FACEBOOK, Inc. Todas as informações contidas aqui são de responsabilidade exclusiva dos organizadores.
+            </p>
+            <div class="flex justify-center space-x-6 text-gray-400 font-bold">
+                <a href="#precos" class="hover:text-brand-pinkDark transition-colors">Termos de Uso</a>
+                <span>•</span>
+                <a href="#precos" class="hover:text-brand-pinkDark transition-colors">Políticas de Privacidade</a>
+                <span>•</span>
+                <a href="#precos" class="hover:text-brand-pinkDark transition-colors">Suporte</a>
+            </div>
+            <p class="text-gray-600 text-[10px]">
+                CNPJ: 00.000.000/0001-00 - CAKE ME MARI LTDA - Taubaté - SP
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SIMULATED CHECKOUT MODAL / DRAWER -->
+    <div id="checkout-drawer" class="fixed inset-0 bg-black/50 z-50 flex justify-end transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="bg-white w-full max-w-md h-full p-6 sm:p-8 overflow-y-auto flex flex-col justify-between shadow-2xl">
+            
+            <div class="space-y-6">
+                <!-- Cabeçalho do Drawer -->
+                <div class="flex items-center justify-between border-b pb-4">
+                    <div>
+                        <span class="text-xs font-black tracking-widest text-[#E86D80] uppercase">Inscrição Imediata</span>
+                        <h4 class="text-xl font-black text-brand-charcoal">Finalizar Matrícula</h4>
+                    </div>
+                    <button onclick="closeCheckout()" class="text-gray-400 hover:text-brand-charcoal font-bold text-2xl">✕</button>
+                </div>
+
+                <!-- Detalhes do Produto Selecionado -->
+                <div class="p-4 bg-[#FFF2F4] rounded-2xl flex items-center space-x-4">
+                    <div class="w-16 h-16 bg-white rounded-xl p-1 flex items-center justify-center">
+                        <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" rx="8" fill="#FFF2F4"/>
+                            <ellipse cx="50" cy="80" rx="35" ry="5" fill="#E5E7EB"/>
+                            <path d="M 25,75 Q 50,25 75,75 Z" fill="#E86D80"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-black text-[#E86D80] uppercase tracking-wider" id="lote-display">PLANO SELECIONADO</span>
+                        <h5 class="font-extrabold text-brand-charcoal text-sm" id="checkout-title">Curso Caseirinhos Decorados</h5>
+                        <p class="text-xs font-bold text-gray-500" id="checkout-desc">Acesso Completo de Sucesso</p>
+                    </div>
+                </div>
+
+                <!-- Formulário de Compra Mocado -->
+                <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-4">
+                    <div class="space-y-1">
+                        <label class="block text-xs font-black uppercase text-gray-400 tracking-wider">Seu Nome Completo</label>
+                        <input required type="text" placeholder="Digite seu nome completo..." class="w-full border-2 border-gray-200 focus:border-[#E86D80] rounded-xl px-4 py-3 text-sm outline-none font-medium transition-colors">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-xs font-black uppercase text-gray-400 tracking-wider">Seu Melhor E-mail</label>
+                        <input required type="email" placeholder="nome@exemplo.com" class="w-full border-2 border-gray-200 focus:border-[#E86D80] rounded-xl px-4 py-3 text-sm outline-none font-medium transition-colors">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-xs font-black uppercase text-gray-400 tracking-wider">Seu WhatsApp</label>
+                        <input required type="tel" placeholder="(00) 00000-0000" class="w-full border-2 border-gray-200 focus:border-[#E86D80] rounded-xl px-4 py-3 text-sm outline-none font-medium transition-colors">
+                    </div>
+
+                    <!-- Métodos de Pagamento Simulados -->
+                    <div class="space-y-2 pt-2">
+                        <label class="block text-xs font-black uppercase text-gray-400 tracking-wider">Método de Pagamento</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label class="border-2 border-brand-charcoal rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors">
+                                <input type="radio" name="payment" value="pix" checked class="hidden">
+                                <span class="text-lg">⚡</span>
+                                <span class="text-[10px] font-black uppercase tracking-wider">Pix</span>
+                            </label>
+                            <label class="border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors">
+                                <input type="radio" name="payment" value="card" class="hidden">
+                                <span class="text-lg">💳</span>
+                                <span class="text-[10px] font-black uppercase tracking-wider">Cartão</span>
+                            </label>
+                            <label class="border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors">
+                                <input type="radio" name="payment" value="boleto" class="hidden">
+                                <span class="text-lg">📄</span>
+                                <span class="text-[10px] font-black uppercase tracking-wider">Boleto</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- Rodapé e Botão de Envio com Confirmação Segura -->
+            <div class="border-t pt-4 space-y-4">
+                <div class="flex items-center justify-between font-bold text-sm">
+                    <span class="text-gray-400">Total a pagar:</span>
+                    <span class="text-xl font-black text-brand-charcoal" id="checkout-price-display">R$ 27,00</span>
+                </div>
+                <button type="submit" form="checkout-form" class="w-full text-center py-4 bg-[#19D668] hover:bg-brand-greenCTA_hover text-white font-extrabold text-sm rounded-2xl tracking-widest uppercase shadow-lg transition-colors">
+                    Concluir Inscrição
+                </button>
+                <div class="flex items-center justify-center space-x-2 text-xs text-gray-400 font-bold">
+                    <span>🛡️</span>
+                    <span>Pagamento Seguro de Confeitaria Protegida</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONFETTI CELEBRATION MODAL -->
+    <div id="success-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center space-y-6 shadow-2xl transform scale-95 transition-all duration-300">
+            <div class="w-20 h-20 bg-[#FFF0F2] rounded-full flex items-center justify-center mx-auto text-4xl">
+                🧁
+            </div>
+            <h4 class="text-2xl font-black text-brand-charcoal">Vaga Confirmada com Sucesso!</h4>
+            <p class="text-gray-500 font-medium leading-relaxed">
+                Parabéns! Suas credenciais de acesso às aulas de Caseirinhos Decorados da Mari Severo foram enviadas para o seu e-mail e WhatsApp simulação.
+            </p>
+            <button onclick="closeSuccess()" class="w-full text-center py-3 bg-brand-charcoal hover:bg-brand-pinkDark text-white font-extrabold text-sm rounded-xl tracking-widest uppercase transition-colors">
+                Vamos Começar!
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC FOR CHECKOUT, DATES AND FAQ -->
+    <script>
+        // 1. Atualizar data de expiração automaticamente baseada na data atual do sistema
+        const options = { day: 'numeric', month: 'long' };
+        const todayStr = new Date().toLocaleDateString('pt-BR', options);
+        document.getElementById('current-expiry-date').innerText = todayStr;
+
+        // Atualizar ano automaticamente no footer
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+
+        // 2. Lógica do FAQ (Expandir/Recolher)
+        function toggleFAQ(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.innerText = '－';
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.innerText = '＋';
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // 3. Lógica do Checkout Simulado Integrado e Dinâmico
+        function openCheckout(planName, price) {
+            const drawer = document.getElementById('checkout-drawer');
+            const display = document.getElementById('lote-display');
+            const title = document.getElementById('checkout-title');
+            const desc = document.getElementById('checkout-desc');
+            const priceDisplay = document.getElementById('checkout-price-display');
+            
+            // Atualiza dinamicamente as informações com base no plano selecionado
+            display.innerText = planName.toUpperCase();
+            title.innerText = planName === 'Apenas Apostila' ? 'Apenas Apostila de Receitas' : 'Curso Caseirinhos Decorados - Kit Premium';
+            desc.innerText = planName === 'Apenas Apostila' ? 'As 5 melhores massas escritas sem as vídeo aulas.' : 'Acesso total de 2 anos com bônus e aulas HD incluídos.';
+            priceDisplay.innerText = `R$ ${price},00`;
+            
+            drawer.classList.remove('translate-x-full');
+        }
+
+        function closeCheckout() {
+            const drawer = document.getElementById('checkout-drawer');
+            drawer.classList.add('translate-x-full');
+        }
+
+        // Modificar estilização de botões de pagamento ao clicar
+        const paymentOptions = document.querySelectorAll('input[name="payment"]');
+        paymentOptions.forEach(option => {
+            option.addEventListener('change', (e) => {
+                paymentOptions.forEach(opt => {
+                    opt.closest('label').className = "border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors";
+                });
+                if (e.target.checked) {
+                    e.target.closest('label').className = "border-2 border-brand-charcoal rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors bg-[#FFF0F2]";
+                }
+            });
+        });
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+            closeCheckout();
+            
+            // Exibir o Modal de Sucesso
+            const modal = document.getElementById('success-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.firstElementChild.classList.remove('scale-95');
+                modal.firstElementChild.classList.add('scale-100');
+            }, 50);
+        }
+
+        function closeSuccess() {
+            const modal = document.getElementById('success-modal');
+            modal.firstElementChild.classList.remove('scale-100');
+            modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+    </script>
+
+</body>
+</html>
