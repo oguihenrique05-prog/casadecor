@@ -6,7 +6,7 @@
     <title>Curso Caseirinhos Decorados - Mari Confeiteira</title>
     <!-- Tailwind CSS para estilização moderna e rápida -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Montserrat (Geométrica moderna) e Playfair Display (Serifa elegante) -->
+    <!-- Google Fonts: Montserrat, Playfair Display e Sacramento -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
@@ -36,77 +36,73 @@
         }
     </script>
     <style>
-        /* Estilos finos adicionais */
         .pink-outline-shadow {
             box-shadow: 0 10px 30px -10px rgba(232, 109, 128, 0.2);
-        }
-        .custom-dashed-border {
-            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23E86D80FF' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
         }
     </style>
 </head>
 <body class="bg-white text-brand-charcoal font-sans antialiased">
 
     <!-- URGENCY TOP BAR WITH DYNAMIC DATE -->
-    <div class="bg-[#E86D80] text-white text-xs sm:text-sm font-bold text-center py-2 px-4 tracking-wide relative z-50">
+    <div class="bg-[#E86D80] text-white text-xs sm:text-sm font-bold text-center py-2.5 px-4 tracking-wide relative z-50">
         ⚡ ATENÇÃO: O preço com desconto de lançamento expira hoje, dia <span id="current-expiry-date" class="underline"></span>! Aproveite agora.
     </div>
 
     <!-- HERO SECTION (imagem1.webp, imagem2.webp, imagem3.webp, imagem4.webp) -->
-    <header class="relative bg-[#FFF2F4] py-6 sm:py-10 md:py-16 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <!-- Grid de 12 colunas mantido horizontal em todas as telas -->
-            <div class="grid grid-cols-12 gap-2 sm:gap-6 lg:gap-8 items-center">
+    <header class="relative bg-[#FFF2F4] py-8 sm:py-12 md:py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Grid responsivo: se empilha perfeitamente no mobile e se alinha em 12 colunas no desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 
-                <!-- Coluna Esquerda: Texto de Venda (col-span-5) -->
-                <div class="col-span-5 z-10 space-y-2 sm:space-y-6">
-                    <!-- Logo Recriado com Tamanho Fluido -->
+                <!-- Coluna Esquerda: Texto de Venda (Aparece no topo no celular) -->
+                <div class="col-span-12 md:col-span-5 flex flex-col items-center text-center md:items-start md:text-left z-10 space-y-4 sm:space-y-6">
+                    <!-- Logo Centralizado no Mobile, alinhado à esquerda no Desk -->
                     <div class="inline-block">
-                        <span class="block text-[6px] sm:text-xs font-black tracking-[0.25em] text-[#E86D80] uppercase">CURSO</span>
+                        <span class="block text-xs font-black tracking-[0.25em] text-[#E86D80] uppercase">CURSO</span>
                         <div class="relative mt-[-2px] sm:mt-[-4px]">
-                            <span class="font-sans font-black text-sm sm:text-4xl lg:text-5xl text-[#E86D80] block tracking-tight uppercase leading-none">caseirinhos</span>
-                            <span class="font-handwritten text-sm sm:text-4xl lg:text-5xl text-[#BC8448] block leading-none mt-0.5 sm:mt-1 transform rotate-[-4deg] origin-left">decorados</span>
+                            <span class="font-sans font-black text-3xl sm:text-4xl lg:text-5xl text-[#E86D80] block tracking-tight uppercase leading-none">caseirinhos</span>
+                            <span class="font-handwritten text-3xl sm:text-4xl lg:text-5xl text-[#BC8448] block leading-none mt-1 transform rotate-[-4deg] origin-left">decorados</span>
                         </div>
                     </div>
                     
-                    <h1 class="text-[9px] sm:text-xl lg:text-2xl font-extrabold text-[#374151] leading-tight tracking-tight uppercase">
+                    <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#374151] leading-snug tracking-tight uppercase">
                         Você vai transformar caseirinhos simples em <span class="text-[#E86D80]">decorados impecáveis</span>, que encantam à primeira vista
                     </h1>
                     
-                    <p class="text-[7px] sm:text-sm font-bold text-[#E86D80] uppercase tracking-wider leading-none">
+                    <p class="text-sm sm:text-base font-bold text-[#E86D80] uppercase tracking-wider">
                         e aumentam muito o valor dos seus bolos!
                     </p>
                     
-                    <div class="pt-1 sm:pt-4">
-                        <span class="block text-[6px] sm:text-xs font-bold text-gray-500 mb-1 sm:mb-2 uppercase tracking-widest leading-none">Apostila por apenas R$ 10 reais</span>
-                        <a href="#precos" class="inline-block w-full text-center py-1.5 px-2 sm:py-4 sm:px-8 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-[8px] sm:text-sm lg:text-base rounded-lg sm:rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 tracking-wider uppercase leading-snug">
+                    <div class="pt-2 sm:pt-4 w-full flex flex-col items-center md:items-start">
+                        <span class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest">Apostila por apenas R$ 10 reais</span>
+                        <a href="#precos" class="inline-block w-full sm:w-auto text-center py-4 px-8 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-sm sm:text-base rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 tracking-wider uppercase">
                             Garantir minha vaga com desconto!
                         </a>
                     </div>
                 </div>
                 
-                <!-- Coluna Central: Imagem Principal de Mari (col-span-4) -->
-                <div class="col-span-4 flex justify-center z-10">
-                    <div class="relative p-1 sm:p-3 bg-white rounded-xl sm:rounded-3xl pink-outline-shadow border border-2 sm:border-4 border-[#FAD5DA] w-full">
-                        <img src="imagem1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Mari+Confeiteira'" alt="Mari Confeiteira" class="w-full h-auto rounded-lg sm:rounded-2xl">
+                <!-- Coluna Central: Imagem Principal de Mari (Abaixo do botão de vendas no celular!) -->
+                <div class="col-span-12 md:col-span-4 flex justify-center z-10">
+                    <div class="relative p-2 sm:p-3 bg-white rounded-2xl sm:rounded-3xl pink-outline-shadow border-2 sm:border-4 border-[#FAD5DA] max-w-xs sm:max-w-sm w-full">
+                        <img src="imagem1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Mari+Confeiteira'" alt="Mari Confeiteira" class="w-full h-auto rounded-xl sm:rounded-2xl">
                     </div>
                 </div>
                 
-                <!-- Coluna Direita: Stack de Três Fotos dos Caseirinhos (col-span-3) -->
-                <div class="col-span-3 flex flex-col justify-between space-y-1.5 sm:space-y-4">
+                <!-- Coluna Direita: Stack de Três Fotos dos Caseirinhos (Oculto no Mobile, visível no Desktop) -->
+                <div class="hidden md:flex md:col-span-3 flex-col justify-between space-y-4">
                     <!-- Bolo 1: Chocolate com calda Rosa -->
-                    <div class="p-1 sm:p-2 bg-white rounded-lg sm:rounded-2xl pink-outline-shadow border sm:border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
-                        <img src="imagem2.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/E86D80?text=Bolo+Rosa'" alt="Bolo Decorado" class="w-full h-auto rounded-md sm:rounded-xl">
+                    <div class="p-2 bg-white rounded-2xl pink-outline-shadow border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
+                        <img src="imagem2.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/E86D80?text=Bolo+Rosa'" alt="Bolo Decorado" class="w-full h-auto rounded-xl">
                     </div>
                     
                     <!-- Bolo 2: Chocolate com Rendilhado Branco -->
-                    <div class="p-1 sm:p-2 bg-white rounded-lg sm:rounded-2xl pink-outline-shadow border sm:border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
-                        <img src="imagem3.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/3D2513?text=Bolo+Rendilhado'" alt="Bolo Decorado" class="w-full h-auto rounded-md sm:rounded-xl">
+                    <div class="p-2 bg-white rounded-2xl pink-outline-shadow border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
+                        <img src="imagem3.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/3D2513?text=Bolo+Rendilhado'" alt="Bolo Decorado" class="w-full h-auto rounded-xl">
                     </div>
                     
                     <!-- Bolo 3: Azul Festivo com Vela -->
-                    <div class="p-1 sm:p-2 bg-white rounded-lg sm:rounded-2xl pink-outline-shadow border sm:border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
-                        <img src="imagem4.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/0EA5E9?text=Bolo+Azul'" alt="Bolo Decorado" class="w-full h-auto rounded-md sm:rounded-xl">
+                    <div class="p-2 bg-white rounded-2xl pink-outline-shadow border-2 border-[#FFF0F2] hover:scale-105 transition-transform duration-300">
+                        <img src="imagem4.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x120/FAF5F5/0EA5E9?text=Bolo+Azul'" alt="Bolo Decorado" class="w-full h-auto rounded-xl">
                     </div>
                 </div>
 
@@ -1070,7 +1066,7 @@
             </div>
             <h4 class="text-2xl font-black text-brand-charcoal">Vaga Confirmada com Sucesso!</h4>
             <p class="text-gray-500 font-medium leading-relaxed">
-                Parabéns! Suas credenciais de acesso às aulas de Caseirinhos Decorados da Mari Severo foram enviadas para o seu e-mail e WhatsApp simulação.
+                Parabéns! Suas credenciais de acesso às aulas de Caseirinhos Decorados da Mari Confeiteira foram enviadas para o seu e-mail e WhatsApp de simulação.
             </p>
             <button onclick="closeSuccess()" class="w-full text-center py-3 bg-brand-charcoal hover:bg-brand-pinkDark text-white font-extrabold text-sm rounded-xl tracking-widest uppercase transition-colors">
                 Vamos Começar!
