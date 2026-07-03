@@ -72,6 +72,13 @@
                     <p class="text-sm sm:text-base font-bold text-[#E86D80] uppercase tracking-wider">
                         e aumentam muito o valor dos seus bolos!
                     </p>
+
+                    <!-- IMAGEM DA MARI NO MOBILE (image_cd9e67.png): Visível APENAS no celular entre o subtítulo e o preço de R$ 10 -->
+                    <div class="block md:hidden w-full max-w-xs mx-auto py-2">
+                        <div class="p-2 bg-white rounded-2xl pink-outline-shadow border-2 border-[#FAD5DA]">
+                            <img src="imagem1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Mari+Confeiteira'" alt="Mari Confeiteira" class="w-full h-auto rounded-xl">
+                        </div>
+                    </div>
                     
                     <div class="pt-2 sm:pt-4 w-full flex flex-col items-center md:items-start">
                         <span class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest">Apostila por apenas R$ 10 reais</span>
@@ -81,8 +88,8 @@
                     </div>
                 </div>
                 
-                <!-- Coluna Central: Imagem Principal de Mari (Abaixo do botão de vendas no celular!) -->
-                <div class="col-span-12 md:col-span-4 flex justify-center z-10">
+                <!-- Coluna Central: Imagem Principal de Mari (Oculta no mobile neste ponto, visível apenas no Desktop) -->
+                <div class="hidden md:flex md:col-span-4 justify-center z-10">
                     <div class="relative p-2 sm:p-3 bg-white rounded-2xl sm:rounded-3xl pink-outline-shadow border-2 sm:border-4 border-[#FAD5DA] max-w-xs sm:max-w-sm w-full">
                         <img src="imagem1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Mari+Confeiteira'" alt="Mari Confeiteira" class="w-full h-auto rounded-xl sm:rounded-2xl">
                     </div>
@@ -134,7 +141,7 @@
                         ...e quem sabe se destacar, sai na frente!
                     </p>
                     <p class="text-base sm:text-lg text-gray-700 leading-relaxed font-medium">
-                        Por isso, que os <strong class="text-brand-charcoal font-extrabold">Caseirinhos Decorados</strong> são a melhor opção pra chamar atenção e aumentar muito as suas vendas de confeitaria!
+                        Por isso, que os <strong class="text-brand-charcoal font-extrabold">Caseirinhos Decorados</strong> são a melhor option pra chamar atenção e aumentar muito as suas vendas de confeitaria!
                     </p>
                     <div class="pt-2">
                         <a href="#precos" class="inline-flex items-center space-x-2 text-[#E86D80] font-black text-sm tracking-widest uppercase group">
@@ -1117,23 +1124,27 @@
             drawer.classList.remove('translate-x-full');
         }
 
+        function toggleVisualsForPayment() {
+            const paymentOptions = document.querySelectorAll('input[name="payment"]');
+            paymentOptions.forEach(option => {
+                option.addEventListener('change', (e) => {
+                    paymentOptions.forEach(opt => {
+                        opt.closest('label').className = "border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors";
+                    });
+                    if (e.target.checked) {
+                        e.target.closest('label').className = "border-2 border-brand-charcoal rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors bg-[#FFF0F2]";
+                    }
+                });
+            });
+        }
+
         function closeCheckout() {
             const drawer = document.getElementById('checkout-drawer');
             drawer.classList.add('translate-x-full');
         }
 
         // Modificar estilização de botões de pagamento ao clicar
-        const paymentOptions = document.querySelectorAll('input[name="payment"]');
-        paymentOptions.forEach(option => {
-            option.addEventListener('change', (e) => {
-                paymentOptions.forEach(opt => {
-                    opt.closest('label').className = "border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors";
-                });
-                if (e.target.checked) {
-                    e.target.closest('label').className = "border-2 border-brand-charcoal rounded-xl p-3 flex flex-col items-center justify-center space-y-1 cursor-pointer hover:bg-[#FFF2F4]/30 transition-colors bg-[#FFF0F2]";
-                }
-            });
-        });
+        toggleVisualsForPayment();
 
         function handleCheckoutSubmit(e) {
             e.preventDefault();
