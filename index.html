@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso Caseirinhos Decorados - Mari Confeiteira</title>
     
+    <!-- Pixel de Rastreio LowTrack -->
+    <script>
+      window.pixelId = "lt_px_bd0cf4bb175d";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://lowtrack.com.br/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    
     <!-- Preload para carregamento otimizado do vídeo -->
     <link rel="preconnect" href="https://play.tynk.ai">
     <link class="dns-prefetch" href="https://play.tynk.ai">
@@ -179,9 +189,6 @@
                 <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
                     <div class="w-full h-full rounded-2xl overflow-hidden relative">
                         <img src="carrossel1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Bolo+Rosa'" alt="Bolo Decorado" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-center rounded-b-2xl">
-                            <p class="font-extrabold text-sm sm:text-base">Efeito Porcelana Floral</p>
-                        </div>
                     </div>
                 </div>
 
@@ -189,9 +196,6 @@
                 <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
                     <div class="w-full h-full rounded-2xl overflow-hidden relative">
                         <img src="carrossel2.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/FF8CA3?text=Bolo+Cenoura'" alt="Bolo Decorado" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-center rounded-b-2xl">
-                            <p class="font-extrabold text-sm sm:text-base">Cenoura com Calda Especial</p>
-                        </div>
                     </div>
                 </div>
 
@@ -199,9 +203,6 @@
                 <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
                     <div class="w-full h-full rounded-2xl overflow-hidden relative">
                         <img src="carrossel3.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/3D2513?text=Bolo+Rendilhado'" alt="Bolo Decorado" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-center rounded-b-2xl">
-                            <p class="font-extrabold text-sm sm:text-base">Renda Colorida Exclusiva</p>
-                        </div>
                     </div>
                 </div>
 
@@ -209,9 +210,6 @@
                 <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
                     <div class="w-full h-full rounded-2xl overflow-hidden relative">
                         <img src="carrossel4.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Bolo+Chocolate'" alt="Bolo Decorado" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-center rounded-b-2xl">
-                            <p class="font-extrabold text-sm sm:text-base">Massa Úmida & Cobertura Brilhosa</p>
-                        </div>
                     </div>
                 </div>
 
@@ -219,9 +217,6 @@
                 <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
                     <div class="w-full h-full rounded-2xl overflow-hidden relative">
                         <img src="carrossel5.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/3D2513?text=Bolo+Artistico'" alt="Bolo Decorado" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-center rounded-b-2xl">
-                            <p class="font-extrabold text-sm sm:text-base">Bordado & Pintura Aquarelada</p>
-                        </div>
                     </div>
                 </div>
 
@@ -1156,6 +1151,7 @@
                     }, 3000);
                 }
 
+                // Parar e reiniciar timer ao interagir manualmente
                 function resetAutoplay() {
                     clearInterval(carouselTimer);
                     startAutoplay();
