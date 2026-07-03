@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso Caseirinhos Decorados - Mari Confeiteira</title>
+    
+    <!-- Preload para carregamento otimizado do vídeo -->
+    <link rel="preconnect" href="https://play.tynk.ai">
+    <link rel="dns-prefetch" href="https://play.tynk.ai">
+    <link rel="prerender" href="https://play.tynk.ai/p/9dc24501-3379-401a-acfa-dd6a0cd9dc8f">
+
     <!-- Tailwind CSS para estilização moderna e rápida -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Montserrat, Playfair Display e Sacramento -->
@@ -102,23 +108,21 @@
         <div class="absolute bottom-0 right-0 left-0 h-4 sm:h-8 bg-white" style="border-radius: 100% 100% 0 0;"></div>
     </header>
 
-    <!-- INTRO SECTION 2 (imagem5.webp replaced with Tynk Video) -->
+    <!-- INTRO SECTION 2 (Tynk Video Embed com proporção 4:5 otimizada) -->
     <section class="py-16 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
                 
-                <!-- Vídeo Incorporado da Tynk.ai (Substituindo imagem5.webp e cortando barras pretas matematicamente) -->
+                <!-- Vídeo Incorporado da Tynk.ai (Proporção nativa 4:5 sem barras pretas) -->
                 <div class="md:col-span-5 flex justify-center">
                     <div class="p-2 bg-white rounded-3xl pink-outline-shadow border-2 border-[#FFF0F2] max-w-sm w-full">
-                        <!-- Wrapper quadrado que esconde o excesso superior e inferior do player Tynk -->
-                        <div class="relative w-full aspect-square overflow-hidden rounded-2xl bg-white">
-                            <!-- O player de 9:16 é esticado para 177.77% de altura e deslocado -38.88% para cima para centralizar apenas o vídeo quadrado -->
+                        <!-- Wrapper que preserva a proporção 4:5 original do vídeo do usuário -->
+                        <div class="relative w-full aspect-[4/5] overflow-hidden rounded-2xl bg-white">
                             <iframe 
-                                src="https://play.tynk.ai/p/a1b307a0-f0c2-48ec-b737-e387d021a7cf" 
-                                class="absolute w-full" 
-                                style="height: 177.77%; top: -38.88%; left: 0;"
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                src="https://play.tynk.ai/p/9dc24501-3379-401a-acfa-dd6a0cd9dc8f" 
+                                class="absolute inset-0 w-full h-full" 
+                                style="border: 0; display: block;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
                             </iframe>
                         </div>
@@ -134,7 +138,7 @@
                         ...e quem sabe se destacar, sai na frente!
                     </p>
                     <p class="text-base sm:text-lg text-gray-700 leading-relaxed font-medium">
-                        Por isso, que os <strong class="text-brand-charcoal font-extrabold">Caseirinhos Decorados</strong> são a melhor option pra chamar atenção e aumentar muito as suas vendas de confeitaria!
+                        Por isso, que os <strong class="text-brand-charcoal font-extrabold">Caseirinhos Decorados</strong> são a melhor opção pra chamar atenção e aumentar muito as suas vendas de confeitaria!
                     </p>
                     <div class="pt-2">
                         <a href="#precos" class="inline-flex items-center space-x-2 text-[#E86D80] font-black text-sm tracking-widest uppercase group">
@@ -701,7 +705,7 @@
                         <hr class="border-gray-100">
                     </div>
 
-                    <!-- Lista de Benefícios (O que tem na apostila de 10) -->
+                    <!-- Lista de Benefícios -->
                     <ul class="space-y-4 font-bold text-sm text-gray-500">
                         <li class="flex items-center space-x-3">
                             <span class="text-brand-greenCTA text-xl">✓</span>
@@ -906,9 +910,9 @@
             
             <!-- Foto Circular Ilustrativa com Nome Curvo -->
             <div class="relative inline-block">
-                <!-- Nome em curva em cima -->
-                <div class="absolute top-[-30px] right-1/2 transform translate-x-1/2 w-48 text-center">
-                    <span class="font-handwritten text-4xl text-brand-charcoal block tracking-wide">Mari Confeiteira ❤️</span>
+                <!-- Nome em curva em cima (whitespace-nowrap impede quebras indesejadas no mobile) -->
+                <div class="absolute -top-12 right-1/2 transform translate-x-1/2 w-max text-center">
+                    <span class="font-handwritten text-4xl text-brand-charcoal block tracking-wide whitespace-nowrap">Mari Confeiteira ❤️</span>
                 </div>
                 <!-- Círculo com Ilustração da Mari (imagem9.webp) -->
                 <div class="w-48 h-48 rounded-full border-4 border-[#FFF0F2] pink-outline-shadow overflow-hidden bg-[#FFF2F4] mx-auto mt-6">
@@ -1147,7 +1151,7 @@
 
         function closeSuccess() {
             const modal = document.getElementById('success-modal');
-            modal.firstElementChild.rm('scale-100');
+            modal.firstElementChild.classList.remove('scale-100');
             modal.firstElementChild.classList.add('scale-95');
             setTimeout(() => {
                 modal.classList.add('hidden');
