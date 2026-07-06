@@ -1,1746 +1,1214 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Caseirinhos Decorados</title>
+    <title>Curso Caseirinhos Decorados - Mari Confeiteira</title>
     
-    <!-- Pré-carregamento prioritário de imagem (LCP) -->
-    <link rel="preload" as="image" href="imagem1.webp" fetchpriority="high">
-    <!-- Pré-carregamento das próximas imagens do fluxo -->
-    <link rel="prefetch" as="image" href="imagem2.webp">
-    <link rel="prefetch" as="image" href="imagem3.webp">
-    <link rel="prefetch" as="image" href="imagem4.webp">
-    <link rel="prefetch" as="image" href="imagem5.webp">
+    <!-- Pixel de Rastreio LowTrack -->
+    <script>
+      window.pixelId = "lt_px_bd0cf4bb175d";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://lowtrack.com.br/pixel.js");
+      document.head.appendChild(a);
+    </script>
     
+    <!-- Preload para carregamento otimizado do vídeo -->
+    <link rel="preconnect" href="https://play.tynk.ai">
+    <link class="dns-prefetch" href="https://play.tynk.ai">
+    <link rel="prerender" href="https://play.tynk.ai/p/9dc24501-3379-401a-acfa-dd6a0cd9dc8f">
+
+    <!-- Tailwind CSS para estilização moderna e rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat, Playfair Display e Sacramento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        handwritten: ['Sacramento', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            pinkLight: '#FFF0F2',
+                            pinkMedium: '#FAD5DA',
+                            pinkDark: '#E86D80',
+                            charcoal: '#222222',
+                            greenCTA: '#19D668',
+                            greenCTA_hover: '#15BD5B',
+                            gold: '#D4AF37',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: #ffffff; /* Fundo Branco Puro - Libre de Box */
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 391px;
-            padding: 0 16px;
-            margin: 20px auto;
-        }
-        
-        /* Transições suaves das Etapas */
-        .step {
-            display: none;
-        }
-        
-        .step.active {
-            display: block;
-            opacity: 1;
-        }
-        
-        .step.active.animate {
-            animation: fadeInSlideUp 0.35s ease-out forwards;
-        }
-        
-        .step-out {
-            animation: fadeOutSlideUp 0.2s ease-in forwards;
-        }
-        
-        @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeOutSlideUp {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-        }
-        
-        /* Utilitários Tipográficos e de Margem */
-        .text-center { text-align: center; }
-        .mb-4 { margin-bottom: 16px; }
-        .mb-6 { margin-bottom: 24px; }
-        .mb-8 { margin-bottom: 32px; }
-        
-        .title-italic {
-            font-size: 26px;
-            line-height: 1.1;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-style: italic;
-            letter-spacing: -0.5px;
-            color: #111827;
-            margin-bottom: 16px;
-        }
-        
-        .subtitle {
-            font-size: 15px;
-            line-height: 21px;
-            font-weight: 500;
-            color: #374151;
-            margin-bottom: 24px;
-        }
-        
-        .question {
-            font-size: 22px;
-            line-height: 28px;
-            font-weight: 800;
-            color: #1f2937;
-            margin-bottom: 24px;
-        }
-        
-        .description {
-            font-size: 15px;
-            line-height: 23px;
-            color: #374151;
-        }
-        
-        .pink-text { color: #db2777; }
-        .highlight-green { color: #059669; font-weight: 950; }
-        .highlight-pink { color: #db2777; font-weight: 950; }
-        
-        /* Barra de Aviso superior */
-        .pink-banner {
-            background-color: #fdf2f8;
-            color: #db2777;
-            text-align: center;
-            padding: 8px 12px;
-            margin-bottom: 24px;
-            font-size: 14px;
-            line-height: 18px;
-            font-weight: 800;
-            border-radius: 12px;
-            border: 1px solid #fce7f3;
-        }
-        
-        /* Imagens */
-        .image-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 24px;
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-            object-fit: cover;
-        }
-        
-        /* Botões Globais */
-        .btn {
-            width: 100%;
-            min-height: 54px;
-            border: none;
-            border-radius: 12px;
-            padding: 16px;
-            font-size: 18px;
-            line-height: 22px;
-            font-weight: 800;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-            transition: all 0.25s ease;
-        }
-        
-        .btn-primary { 
-            background-color: #f9a8d4; 
-            color: #111827; 
-        }
-        
-        .btn-primary:hover {
-            background-color: #f472b6;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(244, 114, 182, 0.35);
-        }
-        
-        .btn-success {
-            background-color: #059669;
-            color: white;
-            animation: pulseButton 1.75s infinite ease-in-out;
-        }
-        
-        .btn-success:hover {
-            background-color: #047857;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(4, 120, 87, 0.35);
-            animation-play-state: paused;
-        }
-        
-        @keyframes pulseButton {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 6px 16px rgba(4, 120, 87, 0.2);
-            }
-            50% {
-                transform: scale(1.025);
-                box-shadow: 0 8px 24px rgba(4, 120, 87, 0.35);
-            }
-        }
-        
-        /* Opções do Quiz */
-        .option-btn {
-            width: 100%;
-            background-color: #ffffff;
-            border: 2px solid #fce7f3;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-align: left;
-            font-family: inherit;
-            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.02);
-            transition: all 0.2s ease;
-        }
-        
-        .option-btn:hover {
-            background-color: #fdf2f8;
-            border-color: #f9a8d4;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(249, 168, 212, 0.2);
-        }
-        
-        .option-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-        
-        .option-btn.selected {
-            background-color: #fce7f3;
-            border-color: #f472b6;
-            transform: scale(0.98);
-        }
-        
-        .option-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .option-emoji {
-            font-size: 24px;
-            line-height: 1;
-        }
-        
-        .option-text {
-            font-size: 15px;
-            line-height: 19px;
-            font-weight: 600;
-            color: #1f2937;
-        }
-        
-        .option-arrow {
-            color: #db2777;
-        }
-        
-        /* Badge */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #fce7f3;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.1);
-        }
-        
-        .badge-text {
-            font-size: 12px;
-            font-weight: 800;
-            color: #9d174d;
-            text-transform: uppercase;
-        }
-        
-        /* Lista de Benefícios */
-        .benefits-list {
-            margin-bottom: 24px;
-        }
-        
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-size: 14px;
-            line-height: 20px;
-            text-align: left;
-        }
-        
-        .check-icon {
-            color: #059669;
-            font-weight: 800;
-            font-size: 16px;
-            margin-top: 2px;
-        }
-        
-        /* Comentários Estilo Facebook */
-        .fb-comments-container {
-            margin-top: 16px;
-            margin-bottom: 24px;
-        }
-        
-        @keyframes popInComment {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fb-comment {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 20px;
-            text-align: left;
-            opacity: 0;
-        }
-        
-        .step.active .fb-comment:nth-child(1) { animation: popInComment 0.4s ease-out forwards 0.3s; }
-        .step.active .fb-comment:nth-child(2) { animation: popInComment 0.4s ease-out forwards 1.0s; }
-        .step.active .fb-comment:nth-child(3) { animation: popInComment 0.4s ease-out forwards 1.7s; }
-        
-        .fb-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: #f9a8d4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 18px;
-            color: #9d174d;
-            flex-shrink: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .fb-avatar.blue { background-color: #bfdbfe; color: #1e40af; }
-        .fb-avatar.green { background-color: #bbf7d0; color: #166534; }
-        
-        .fb-content-wrapper {
-            flex: 1;
-        }
-        
-        .fb-bubble {
-            background-color: #f3f4f6;
-            padding: 10px 14px;
-            border-radius: 18px;
-            position: relative;
-            display: inline-block;
-            max-width: 100%;
-        }
-        
-        .fb-name {
-            font-weight: 700;
-            font-size: 14px;
-            color: #050505;
-            margin-bottom: 2px;
-        }
-        
-        .fb-text {
-            font-size: 14px;
-            color: #050505;
-            line-height: 1.4;
-        }
-        
-        .fb-actions {
-            font-size: 12px;
-            color: #65676b;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 4px;
-            margin-left: 12px;
-            position: relative;
-        }
-        
-        .fb-actions span { cursor: pointer; }
-        .fb-actions span:hover { text-decoration: underline; }
-        .fb-time { font-weight: 400; }
-        
-        .fb-reactions {
-            position: absolute;
-            right: -20px;
-            top: -16px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 2px 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-            font-size: 12px;
-            color: #65676b;
-            font-weight: 400;
-            z-index: 2;
-        }
-        
-        /* Nova Seção de Passos de Ensino */
-        .step-learning-card {
-            background: #ffffff;
-            border: 1px solid #fce7f3;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.03);
-        }
-        
-        .step-badge {
-            background-color: #fdf2f8;
-            color: #db2777;
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-        
-        .step-learning-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 8px;
-        }
-        
-        .step-learning-desc {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
-        
-        .step-learning-bullets {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .step-learning-bullets li {
-            font-size: 13px;
-            color: #374151;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            font-weight: 600;
-        }
-        
-        /* Nova Tabela de Grade Detalhada */
-        .grade-section {
-            background-color: #ffffff;
-            padding: 20px 0;
-            text-align: left;
-        }
-        
-        .grade-title {
-            font-size: 14px;
-            color: #db2777;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: center;
-            margin-bottom: 4px;
-        }
-        
-        .grade-main-title {
-            font-size: 20px;
-            font-weight: 900;
-            color: #111827;
-            text-align: center;
-            text-transform: uppercase;
-            font-style: italic;
-            margin-bottom: 24px;
-        }
-        
-        .grade-column {
-            margin-bottom: 24px;
-        }
-        
-        .grade-badge-header {
-            font-size: 11px;
-            font-weight: 800;
-            color: #db2777;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-        
-        .grade-col-title {
-            font-size: 16px;
-            font-weight: 900;
-            color: #111827;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        
-        .grade-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .grade-list li {
-            font-size: 13px;
-            color: #4b5563;
-            padding: 8px 0;
-            border-bottom: 1px solid #f3f4f6;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-        
-        .grade-list li::before {
-            content: "◆";
-            color: #db2777;
-            font-size: 10px;
-        }
-        
-        /* Bônus Premium Cards */
-        .bonus-premium-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-        
-        .bonus-card {
-            background: #ffffff;
-            border: 2px dashed #f9a8d4;
-            border-radius: 12px;
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            text-align: left;
-        }
-        
-        .bonus-icon {
-            font-size: 32px;
-            flex-shrink: 0;
-        }
-        
-        .bonus-content { flex: 1; }
-        
-        .bonus-title {
-            font-weight: 900;
-            color: #db2777;
-            font-size: 15px;
-            margin-bottom: 2px;
-            text-transform: uppercase;
-        }
-        
-        .bonus-desc {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.4;
-            font-weight: 500;
-        }
-        
-        /* Caixa Verde */
-        .green-box {
-            background-color: #dcfce7;
-            border: 1px solid #bbf7d0;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 24px;
-            text-align: left;
-        }
-        
-        .green-text { font-size: 14px; line-height: 20px; color: #166534; font-weight: 500; }
-        
-        /* FAQ - Dúvidas */
-        .faq-container {
-            margin-bottom: 32px;
-            text-align: left;
-        }
-        
-        .faq-header {
-            font-size: 20px;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 16px;
-            color: #1f2937;
-            text-transform: uppercase;
-            font-style: italic;
-        }
-        
-        .faq-item {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 14px 16px;
-            margin-bottom: 10px;
-        }
-        
-        .faq-q {
-            font-weight: 800;
-            font-size: 14px;
-            color: #111827;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-        
-        .faq-q::before { content: "❓"; font-size: 16px; }
-        
-        .faq-a {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-            padding-left: 24px;
-        }
-        
-        /* Design Adaptado da Oferta - Dois Planos */
-        .pricing-section {
-            margin-top: 32px;
-            margin-bottom: 32px;
-        }
-        
-        .pricing-title {
-            font-size: 20px;
-            font-weight: 900;
-            text-align: center;
-            color: #111827;
-            text-transform: uppercase;
-            font-style: italic;
-            margin-bottom: 4px;
-        }
-        
-        .pricing-subtitle {
-            font-size: 12px;
-            font-weight: 700;
-            color: #6b7280;
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-        
-        .plan-card {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 24px 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .plan-card.recommended {
-            border: 2px solid #db2777;
-            box-shadow: 0 10px 25px rgba(219, 39, 119, 0.1);
-        }
-        
-        .recommended-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #db2777;
-            color: white;
-            font-size: 10px;
-            font-weight: 900;
-            padding: 4px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .plan-header {
-            font-size: 11px;
-            font-weight: 800;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-        
-        .plan-card.recommended .plan-header {
-            color: #db2777;
-        }
-        
-        .plan-title {
-            font-size: 20px;
-            font-weight: 900;
-            color: #111827;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-        
-        .plan-price-old {
-            font-size: 13px;
-            text-decoration: line-through;
-            color: #9ca3af;
-            margin-bottom: 2px;
-        }
-        
-        .plan-price {
-            font-size: 40px;
-            font-weight: 950;
-            color: #111827;
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-        
-        .plan-price.green {
-            color: #059669;
-        }
-        
-        .plan-price-sub {
-            font-size: 11px;
-            font-weight: 700;
-            color: #6b7280;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-        
-        .plan-features {
-            list-style: none;
-            padding: 16px 0;
-            border-top: 1px solid #f3f4f6;
-            border-bottom: 1px solid #f3f4f6;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        
-        .plan-features li {
-            font-size: 12px;
-            font-weight: 700;
-            color: #374151;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .plan-features li.disabled {
-            color: #9ca3af;
-            text-decoration: line-through;
-            font-weight: 500;
-        }
-        
-        .plan-features li .check {
-            color: #059669;
-            font-weight: 800;
-        }
-        
-        .plan-features li .cross {
-            color: #d1d5db;
-            font-weight: 800;
-        }
-        
-        /* Resultados Reais / Depoimentos */
-        .testimonial-card {
-            background-color: #ffffff;
-            border: 1px solid #fce7f3;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 16px;
-            text-align: left;
-            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.03);
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        
-        .testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: #fdf2f8;
-            color: #db2777;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 16px;
-        }
-        
-        .testimonial-name {
-            font-size: 14px;
-            font-weight: 800;
-            color: #111827;
-        }
-        
-        .testimonial-tag {
-            font-size: 10px;
-            font-weight: 700;
-            color: #9ca3af;
-            text-transform: uppercase;
-        }
-        
-        .testimonial-desc {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-        
-        .testimonial-stars {
-            color: #f59e0b;
-            font-size: 12px;
-        }
-        
-        /* Perfil da Autora */
-        .author-section {
-            border-top: 1px solid #f3f4f6;
-            padding-top: 24px;
-            margin-top: 24px;
-            text-align: center;
-        }
-        
-        .author-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 12px auto;
-            border: 3px solid #db2777;
-            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.15);
-        }
-        
-        .author-title {
-            font-size: 11px;
-            font-weight: 800;
-            color: #db2777;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .author-name {
-            font-size: 18px;
-            font-weight: 900;
-            color: #111827;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-        
-        .author-subtitle {
-            font-size: 11px;
-            font-weight: 700;
-            color: #6b7280;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        
-        .author-bio {
-            font-size: 12px;
-            color: #4b5563;
-            line-height: 1.6;
-        }
-        
-        /* Rodapé */
-        .footer {
-            border-top: 1px solid #f3f4f6;
-            padding-top: 16px;
-            margin-top: 32px;
-            text-align: center;
-            font-size: 11px;
-            color: #9ca3af;
-        }
-        
-        .footer-links {
-            margin-top: 8px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-        
-        .footer-links span {
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .footer-links span:hover {
-            text-decoration: underline;
-        }
-        
-        /* Caixa de 8 Cursos Extras */
-        .eight-courses-box {
-            border: 2px dashed #db2777;
-            background-color: #fffdfd;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        
-        .eight-courses-title {
-            font-size: 16px;
-            font-weight: 900;
-            color: #9d174d;
-            text-transform: uppercase;
-            margin-top: 4px;
-            margin-bottom: 12px;
-        }
-        
-        .eight-courses-desc {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-        
-        .eight-courses-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            text-align: left;
-            margin-bottom: 16px;
-        }
-        
-        .eight-courses-grid li {
-            font-size: 12px;
-            font-weight: 700;
-            color: #db2777;
-            list-style: none;
-        }
-        
-        .eight-courses-grid li::before {
-            content: "• ";
-        }
-        
-        /* Banner superior de data urgente */
-        .top-urgency-banner {
-            background-color: #db2777;
-            color: white;
-            text-align: center;
-            padding: 8px 12px;
-            font-size: 11px;
-            font-weight: 700;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        /* Ajustar container por conta da barra fixa */
-        .container {
-            margin-top: 50px;
+        .pink-outline-shadow {
+            box-shadow: 0 10px 30px -10px rgba(232, 109, 128, 0.2);
+        }
+        /* Configuração de perspectiva 3D para o carrossel */
+        .perspective-container {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+        .carousel-card {
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-style: preserve-3d;
         }
     </style>
-    
-    <!-- Meta Pixel Code - Atualizado valor de rastreio -->
-    <script>
-    window.addEventListener('load', function () {
-        setTimeout(function () {
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '713072690328826');
-            fbq('track', 'PageView');
-            fbq('track', 'ViewContent', {value: 27.00, currency: 'BRL'});
-        }, 1200);
-    });
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=713072690328826&ev=PageView&noscript=1"
-    /></noscript>
 </head>
-<body>
+<body class="bg-white text-brand-charcoal font-sans antialiased">
 
-    <div class="top-urgency-banner">
-        ⚡ ATENÇÃO: O preço com desconto de lançamento expira <span id="data-limite">hoje</span>! Aproveite agora.
+    <!-- URGENCY TOP BAR WITH DYNAMIC DATE -->
+    <div class="bg-[#E86D80] text-white text-xs sm:text-sm font-bold text-center py-2.5 px-4 tracking-wide relative z-50">
+        ⚡ ATENÇÃO: O preço com desconto de lançamento expira hoje, dia <span id="current-expiry-date" class="underline"></span>! Aproveite agora.
     </div>
 
-    <div class="container">
+    <!-- HERO SECTION (imagem1.webp) -->
+    <header class="relative bg-[#FFF2F4] py-8 sm:py-12 md:py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Grid responsivo de 12 colunas no desktop: 7 colunas para texto e 5 para a imagem única -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                
+                <!-- Coluna Esquerda: Texto de Venda -->
+                <div class="col-span-12 md:col-span-7 flex flex-col items-center text-center md:items-start md:text-left z-10 space-y-4 sm:space-y-6">
+                    <div class="inline-block">
+                        <span class="block text-xs font-black tracking-[0.25em] text-[#E86D80] uppercase">CURSO</span>
+                        <div class="relative mt-[-2px] sm:mt-[-4px]">
+                            <span class="font-sans font-black text-3xl sm:text-4xl lg:text-5xl text-[#E86D80] block tracking-tight uppercase leading-none">caseirinhos</span>
+                            <span class="font-handwritten text-3xl sm:text-4xl lg:text-5xl text-[#BC8448] block leading-none mt-1 transform rotate-[-4deg] origin-left">decorados</span>
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#374151] leading-snug tracking-tight uppercase">
+                        Você vai transformar caseirinhos simples em <span class="text-[#E86D80]">decorados impecáveis</span>, que encantam à primeira vista
+                    </h1>
+                    
+                    <p class="text-sm sm:text-base font-bold text-[#E86D80] uppercase tracking-wider">
+                        e aumentam muito o valor dos seus bolos!
+                    </p>
+
+                    <!-- IMAGEM DA MARI NO MOBILE (imagem1.webp): Entre a frase de aumento de valor e o preço -->
+                    <div class="block md:hidden w-full max-w-xs mx-auto py-2">
+                        <div class="p-2 bg-white rounded-2xl pink-outline-shadow border-2 border-[#FAD5DA]">
+                            <img src="imagem1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Mari+Confeiteira'" alt="Mari Confeiteira" class="w-full h-auto rounded-xl">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2 sm:pt-4 w-full flex flex-col items-center md:items-start">
+                        <span class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest">Apostila por apenas R$ 17 reais</span>
+                        <a href="#precos" class="inline-block w-full sm:w-auto text-center py-4 px-8 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-sm sm:text-base rounded-full shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 tracking-wider uppercase">
+                            Garantir minha vaga com desconto!
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Coluna Direita: Imagem Única de Mari (Oculta no mobile neste ponto, visível apenas no Desktop) -->
+                <div class="hidden md:flex md:col-span-5 justify-center z-10">
+                    <div class="relative p-2 sm:p-3 bg-white rounded-2xl sm:rounded-3xl pink-outline-shadow border-2 sm:border-4 border-[#FAD5DA] max-w-sm w-full">
+                        <img src="imagem1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Mari+Confeiteira'" alt="Mari Confeiteira" class="w-full h-auto rounded-xl sm:rounded-2xl">
+                    </div>
+                </div>
+
+            </div>
+        </div>
         
-        <!-- STEP 0: Apresentação Focada em Conversão -->
-        <div class="step active" id="step-0" data-quiz-step="1">
-            <div class="text-center mb-6">
-                <h1 class="title-italic">
-                    Como faturar de <br><span class="highlight-green">R$ 2.000 a R$ 5.000/mês</span><br> fazendo <span class="highlight-pink">Caseirinhos Decorados</span> em casa.
-                </h1>
-                <p class="subtitle">
-                    O passo a passo para produzir e lucrar alto com bolos caseiros perfeitamente decorados usando apenas as panelas comuns da sua cozinha.
-                </p>
-            </div>
-            
-            <div class="image-container">
-                <img src="imagem1.webp" alt="Caseirinho Decorado de Rosas" width="359" height="359" fetchpriority="high" loading="eager" decoding="async">
-            </div>
-            
-            <div class="pink-banner">
-                Massas Fofinhas + Cobertura Porcelana + Vendas
-            </div>
-            
-            <div class="text-center mb-6">
-                <p class="description">
-                    Descubra como mulheres comuns estão se destacando e lucrando alto com os <strong>Caseirinhos Decorados</strong> mais desejados da internet.
-                </p>
-            </div>
-            
-            <button id="quiz-start" class="btn btn-primary mb-4" onclick="nextStep()">
-                SIM! QUERO APRENDER ISSO
-            </button>
-            
-            <div class="text-center">
-                <p style="font-size: 12px; line-height: 16px; color: #6b7280; font-weight: 500;">
-                    Toque no botão acima para iniciar a apresentação rápida.
-                </p>
-            </div>
-        </div>
+        <!-- Detalhe decorativo orgânico no fundo -->
+        <div class="absolute bottom-0 right-0 left-0 h-4 sm:h-8 bg-white" style="border-radius: 100% 100% 0 0;"></div>
+    </header>
 
-        <!-- STEP 1: Pergunta 1 -->
-        <div class="step" id="step-1" data-quiz-step="2">
-            <div class="text-center mb-6">
-                <h1 class="question">
-                    Você já faz <span class="pink-text">doces</span> pra vender ou esse seria o seu <span class="pink-text">começo</span>?
-                </h1>
-            </div>
-            
-            <div class="image-container">
-                <img src="imagem2.webp" alt="Confeiteira trabalhando" width="359" height="359" loading="eager" decoding="async">
-            </div>
-            
-            <div class="text-center mb-4">
-                <p style="font-size: 14px; line-height: 17px; font-weight: 700; color: #4b5563;">ESCOLHA A OPÇÃO ABAIXO</p>
-            </div>
-            
-            <button type="button" class="option-btn" onclick="selectOption(this)">
-                <div class="option-content">
-                    <span class="option-emoji">😍</span>
-                    <span class="option-text">Sim, já vendo doces e quero lucrar ainda mais</span>
-                </div>
-                <span class="option-arrow">❯</span>
-            </button>
-            
-            <button type="button" class="option-btn" onclick="selectOption(this)">
-                <div class="option-content">
-                    <span class="option-emoji">😐</span>
-                    <span class="option-text">Faço por hobby ou pra família, mas quero começar a vender</span>
-                </div>
-                <span class="option-arrow">❯</span>
-            </button>
-            
-            <button type="button" class="option-btn" onclick="selectOption(this)">
-                <div class="option-content">
-                    <span class="option-emoji">🤔</span>
-                    <span class="option-text">Nunca fiz, quero aprender do zero pra ter renda extra</span>
-                </div>
-                <span class="option-arrow">❯</span>
-            </button>
-        </div>
-
-        <!-- STEP 2: Pergunta 2 -->
-        <div class="step" id="step-2" data-quiz-step="3">
-            <div class="text-center mb-6">
-                <h1 class="question">
-                    Você já viu alguém vendendo esses <span class="pink-text">Caseirinhos Decorados</span> na <span class="highlight-pink">SUA CIDADE</span>?
-                </h1>
-            </div>
-            
-            <div class="image-container">
-                <img src="imagem3.webp" alt="Exemplo de decorações finas" width="359" height="359" loading="eager" decoding="async">
-            </div>
-            
-            <button type="button" class="option-btn" onclick="selectOption(this)">
-                <div class="option-content">
-                    <span class="option-emoji">👑</span>
-                    <span class="option-text">Nunca vi! Vou ser a primeira e nadar de braçada.</span>
-                </div>
-                <span class="option-arrow">❯</span>
-            </button>
-            
-            <button type="button" class="option-btn" onclick="selectOption(this)">
-                <div class="option-content">
-                    <span class="option-emoji">😐</span>
-                    <span class="option-text">Vi sim, mas é bem raro por aqui.</span>
-                </div>
-                <span class="option-arrow">❯</span>
-            </button>
-            
-            <button type="button" class="option-btn" onclick="selectOption(this)">
-                <div class="option-content">
-                    <span class="option-emoji">🤔</span>
-                    <span class="option-text">Já vi, mas sei que posso fazer com mais qualidade.</span>
-                </div>
-                <span class="option-arrow">❯</span>
-            </button>
-        </div>
-
-        <!-- STEP 3: Informação de Produto 1 -->
-        <div class="step" id="step-3" data-quiz-step="4">
-            <div class="text-center mb-6">
-                <h1 style="font-size: 22px; line-height: 28px; font-weight: 800; margin-bottom: 16px; color: #1f2937;">
-                    O Segredo por trás da <span class="highlight-pink">Cobertura Perfeita</span> que Valoriza qualquer Bolo Simples
-                </h1>
-            </div>
-            
-            <div class="image-container">
-                <img src="imagem4.webp" alt="Finalizando a decoração do bolo" width="359" height="359" loading="eager" decoding="async">
-            </div>
-            
-            <div class="text-center mb-6">
-                <p class="description">
-                    Descubra como dominar o ponto exato das coberturas que mais faturam na confeitaria, decorando com perfeição e agregando alto valor aos seus bolos com pouquíssimo investimento.
-                </p>
-            </div>
-            
-            <button class="btn btn-primary" onclick="nextStep()">
-                🍰 Quero ver como funciona!
-            </button>
-        </div>
-
-        <!-- STEP 4: Informação de Produto 2 -->
-        <div class="step" id="step-4" data-quiz-step="5">
-            <div class="text-center mb-6">
-                <h1 style="font-size: 22px; line-height: 28px; font-weight: 800; color: #1f2937;">Um design irresistível que <span class="pink-text">vende sozinho!</span></h1>
-            </div>
-            
-            <div class="image-container">
-                <img src="imagem5.webp" alt="Caseirinho Decorado com Margaridas" width="359" height="359" loading="eager" decoding="async">
-            </div>
-            
-            <div class="text-center mb-6">
-                <p class="description">
-                    <strong style="color: #db2777;">Você tem vergonha ou medo de vender?</strong> Não se preocupe. A estética impecável dos caseirinhos com flores, bicos e pinturas aquareladas faz com que os clientes comprem com os olhos.
-                </p>
-            </div>
-            
-            <div class="green-box">
-                <p class="green-text">
-                    ✅ <strong>DENTRO DO KIT PREMIUM:</strong> Você recebe scripts de vendas automáticas <span style="background-color: #059669; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 900;">Prontos</span> para copiar e disparar no WhatsApp, garantindo encomendas sem precisar parecer chata!
-                </p>
-            </div>
-            
-            <button class="btn btn-primary" onclick="nextStep()">
-                🤩 Quero aprender a decorar!
-            </button>
-        </div>
-
-        <!-- STEP 5: Depoimentos FB -->
-        <div class="step" id="step-5" data-quiz-step="6">
-            <div class="text-center mb-6">
-                <h1 style="font-size: 22px; line-height: 28px; font-weight: 800; color: #059669;">Excelente! Você está no caminho certo.</h1>
-            </div>
-            
-            <div class="text-center mb-4">
-                <p class="description">
-                    Veja os depoimentos reais de nossas alunas que iniciaram com receitas simples e hoje dominam a decoração artesanal de bolos:
-                </p>
-            </div>
-            
-            <div class="fb-comments-container">
-                <!-- Comentário 1 -->
-                <div class="fb-comment">
-                    <div class="fb-avatar">P</div>
-                    <div class="fb-content-wrapper">
-                        <div class="fb-bubble">
-                            <div class="fb-name">Patrícia Gomes</div>
-                            <div class="fb-text">A técnica da cobertura porcelana de ninho é fantástica! Fiz ontem para um aniversário da família e já saí com 3 encomendas de parentes. Não quebra e tem um brilho perfeito. 😭 🙏🏻</div>
-                            <div class="fb-reactions">
-                                <span>👍</span><span>❤️</span> <span>89</span>
-                            </div>
-                        </div>
-                        <div class="fb-actions">
-                            <span>Curtir</span>
-                            <span>Responder</span>
-                            <span class="fb-time">2 h</span>
+    <!-- INTRO SECTION 2 (Tynk Video Embed) -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                
+                <!-- Vídeo Incorporado da Tynk.ai -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="p-2 bg-white rounded-3xl pink-outline-shadow border-2 border-[#FFF0F2] max-w-sm w-full">
+                        <div class="relative w-full aspect-[4/5] overflow-hidden rounded-2xl bg-white">
+                            <iframe 
+                                src="https://play.tynk.ai/p/9dc24501-3379-401a-acfa-dd6a0cd9dc8f" 
+                                class="absolute inset-0 w-full h-full" 
+                                style="border: 0; display: block;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Comentário 2 -->
-                <div class="fb-comment">
-                    <div class="fb-avatar blue">L</div>
-                    <div class="fb-content-wrapper">
-                        <div class="fb-bubble">
-                            <div class="fb-name">Luciana Marques</div>
-                            <div class="fb-text">Eu tinha muita vergonha de oferecer. Só postei a foto do meu bolo com as flores de margarida no status do Whatsapp usando as mensagens prontas que vêm de bônus, vendi 5 caseirinhos de uma vez!</div>
-                            <div class="fb-reactions">
-                                <span>❤️</span><span>😮</span> <span>42</span>
-                            </div>
-                        </div>
-                        <div class="fb-actions">
-                            <span>Curtir</span>
-                            <span>Responder</span>
-                            <span class="fb-time">4 h</span>
-                        </div>
+                <!-- Copy Persuasiva -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-charcoal leading-tight">
+                        Todo mundo adora um bolo caseirinho...
+                    </h2>
+                    <p class="text-lg font-bold text-[#E86D80] tracking-wide italic">
+                        ...e quem sabe se destacar, sai na frente!
+                    </p>
+                    <p class="text-base sm:text-lg text-gray-700 leading-relaxed font-medium">
+                        Por isso, que os <strong class="text-brand-charcoal font-extrabold">Caseirinhos Decorados</strong> são a melhor opção pra chamar atenção e aumentar muito as suas vendas de confeitaria!
+                    </p>
+                    <div class="pt-2">
+                        <a href="#precos" class="inline-flex items-center space-x-2 text-[#E86D80] font-black text-sm tracking-widest uppercase group">
+                            <span>Quero me destacar agora</span>
+                            <span class="group-hover:translate-x-2 transition-transform duration-300">➔</span>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Comentário 3 -->
-                <div class="fb-comment">
-                    <div class="fb-avatar green">A</div>
-                    <div class="fb-content-wrapper">
-                        <div class="fb-bubble">
-                            <div class="fb-name">Ana Clara Silva</div>
-                            <div class="fb-text">Eu morria de medo da massa murchar ou solar. O método de assamento sem barriga que a Mari ensina é nota 10, o bolo grew retinho e ficou super fofinho. Amei cada aula.</div>
-                            <div class="fb-reactions">
-                                <span>👍</span><span>❤️</span> <span>156</span>
-                            </div>
-                        </div>
-                        <div class="fb-actions">
-                            <span>Curtir</span>
-                            <span>Responder</span>
-                            <span class="fb-time">5 h</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
-            
-            <button class="btn btn-primary" onclick="nextStep()">
-                Ver Meu Plano
-            </button>
         </div>
+    </section>
 
-        <!-- STEP 6: Sales Page de Caseirinhos Decorados -->
-        <div class="step" id="step-6" data-quiz-step="7">
-            <div class="text-center mb-4">
-                <div class="badge">
-                    <span style="font-size: 20px;">🎉</span>
-                    <span class="badge-text">PARABÉNS</span>
+    <!-- VITRINE ENCANTADA: CARROSSEL 3D (Focado em leveza extrema, hardware accelerated) -->
+    <section class="py-16 bg-[#FFF2F4]/50 overflow-hidden relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Inspiração Visual</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mt-2">
+                    VEJA ALGUMAS DECORAÇÕES QUE VOCÊ VAI APRENDER
+                </h2>
+                <p class="text-sm font-bold text-gray-500 uppercase tracking-wider mt-2">Deslize para o lado para ver os detalhes de pertinho!</p>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Contêiner do Carrossel com Perspectiva 3D e posicionamento fixo para evitar conflitos de transformações -->
+            <div class="relative w-full h-[320px] sm:h-[450px] perspective-container select-none" id="carousel-3d-container">
+                
+                <!-- Card 1 (Bolo Rosa) -->
+                <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
+                    <div class="w-full h-full rounded-2xl overflow-hidden relative">
+                        <img src="carrossel1.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Bolo+Rosa'" alt="Bolo Decorado" class="w-full h-full object-cover">
+                    </div>
                 </div>
+
+                <!-- Card 2 (Bolo Cenoura) -->
+                <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
+                    <div class="w-full h-full rounded-2xl overflow-hidden relative">
+                        <img src="carrossel2.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/FF8CA3?text=Bolo+Cenoura'" alt="Bolo Decorado" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Card 3 (Bolo Rendilhado) -->
+                <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
+                    <div class="w-full h-full rounded-2xl overflow-hidden relative">
+                        <img src="carrossel3.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/3D2513?text=Bolo+Rendilhado'" alt="Bolo Decorado" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Card 4 (Bolo Chocolate) -->
+                <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
+                    <div class="w-full h-full rounded-2xl overflow-hidden relative">
+                        <img src="carrossel4.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/E86D80?text=Bolo+Chocolate'" alt="Bolo Decorado" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Card 5 (Bolo Artístico) -->
+                <div class="carousel-card absolute left-[calc(50%-110px)] sm:left-[calc(50%-160px)] top-[22.5px] sm:top-[25px] w-[220px] sm:w-[320px] aspect-[4/5] bg-white rounded-3xl pink-outline-shadow border-2 border-white p-2 cursor-pointer">
+                    <div class="w-full h-full rounded-2xl overflow-hidden relative">
+                        <img src="carrossel5.webp" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF2F4/3D2513?text=Bolo+Artistico'" alt="Bolo Decorado" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navegadores inferiores (Bolinhas indicadoras) -->
+            <div class="flex justify-center space-x-2 mt-6 sm:mt-10" id="carousel-dots-container">
+                <!-- Inserido dinamicamente pelo JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHAT YOU WILL LEARN SECTION -->
+    <section class="py-16 bg-[#FFF2F4]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <h2 class="text-center text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mb-4">
+                O que você vai aprender com a Mari:
+            </h2>
+            <p class="text-center text-sm font-bold text-gray-500 uppercase tracking-wider mb-12 max-w-2xl mx-auto">
+                Tudo o que você precisa dominar, do absoluto zero ao acabamento profissional perfeito.
+            </p>
+            
+            <!-- Grid de Tópicos Estáticos -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- CARD 1: MASSAS -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 pink-outline-shadow border border-pink-100 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="space-y-6">
+                        <!-- Icon & Step Badge -->
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-[#FFF0F2] text-[#E86D80] text-xs font-black uppercase tracking-widest rounded-full">Passo 1</span>
+                            <div class="w-12 h-12 bg-[#FFF2F4] rounded-full flex items-center justify-center text-2xl">🥣</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-black text-brand-charcoal">Massas Fofinhas & Estruturadas</h3>
+                            <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                O segredo científico de massas que sustentam decorações sem quebrar ou ressecar.
+                            </p>
+                        </div>
+
+                        <hr class="border-pink-100">
+
+                        <ul class="space-y-3 font-medium text-sm text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Cenoura super fofinho</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Chocolate estruturado</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Fubá com textura caseira irresistível</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bolo de Laranja & Limão aromáticos</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Método de assamento plano sem criar "barriga"</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD 2: COBERTURAS -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 pink-outline-shadow border border-pink-100 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="space-y-6">
+                        <!-- Icon & Step Badge -->
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-[#FFF0F2] text-[#E86D80] text-xs font-black uppercase tracking-widest rounded-full">Passo 2</span>
+                            <div class="w-12 h-12 bg-[#FFF2F4] rounded-full flex items-center justify-center text-2xl">🍯</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-black text-brand-charcoal">Coberturas Porcelana & Fondant</h3>
+                            <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                Caldas que dão aquele efeito brilhoso profissional, firme ao toque mas macio ao cortar.
+                            </p>
+                        </div>
+
+                        <hr class="border-pink-100">
+
+                        <ul class="space-y-3 font-medium text-sm text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Porcelana de Ninho clássica e cremosa</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Efeito Porcelana Acetinada para brilho extra</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Fondant Iceberg estável e sedoso</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Ponto ideal para o caimento perfeito das caldas</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Conservação e validade das coberturas</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD 3: DECORAÇÃO -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 pink-outline-shadow border border-pink-100 flex flex-col justify-between hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="space-y-6">
+                        <!-- Icon & Step Badge -->
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-[#FFF0F2] text-[#E86D80] text-xs font-black uppercase tracking-widest rounded-full">Passo 3</span>
+                            <div class="w-12 h-12 bg-[#FFF2F4] rounded-full flex items-center justify-center text-2xl">🎨</div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-black text-brand-charcoal">Decorações de Luxo & Arte</h3>
+                            <p class="text-xs text-gray-500 font-medium leading-relaxed">
+                                Detalhes e pinturas à mão que diferenciam o seu bolo de qualquer caseirinho simples.
+                            </p>
+                        </div>
+
+                        <hr class="border-pink-100">
+
+                        <ul class="space-y-3 font-medium text-sm text-gray-700">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Bordados delicados e Rendas coloridas</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Rendas sobre a cobertura de porcelana</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Flores volumosas lindas com bicos de confeitar</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Pintura aquarelada delicada com corações e poás</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-[#E86D80] font-bold">✔</span>
+                                <span>Modelagem rápida de apliques de Pasta Americana</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM CURRICULUM SECTION -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Conteúdo Completo</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mt-2">
+                    GRADE DETALHADA DO CURSO
+                </h2>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grelha Editorial Elegante e Altamente Legível -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                
+                <!-- Coluna 1: DECORAÇÕES -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4 text-center lg:text-left">
+                        <span class="text-xs font-extrabold text-[#E86D80] uppercase tracking-widest">(Vídeo Aulas)</span>
+                        <h3 class="text-xl font-black text-brand-charcoal mt-1 tracking-wider">DECORAÇÕES</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bordado / Renda colorida</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Renda sobre porcelana</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Flores volumosas com bicos</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura aquarelada</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura Floral contorno</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura delicada corações e poá</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Apliques Pasta Americana (flor, estrela, coração)</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Pintura metalizada</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 2: COBERTURAS -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4 text-center lg:text-left">
+                        <span class="text-xs font-extrabold text-[#E86D80] uppercase tracking-widest">(Vídeo Aulas)</span>
+                        <h3 class="text-xl font-black text-brand-charcoal mt-1 tracking-wider">COBERTURAS</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Porcelana ninho</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Porcelana ninho acetinada</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Fondant Iceberg</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: RECEITAS MASSAS -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4 text-center lg:text-left">
+                        <span class="text-xs font-extrabold text-[#E86D80] uppercase tracking-widest">(Apostila Completa)</span>
+                        <h3 class="text-xl font-black text-brand-charcoal mt-1 tracking-wider">RECEITAS MASSAS</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Cenoura</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Chocolate</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Fubá</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Laranja</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-left">
+                            <span class="text-[#38BDF8] font-bold text-base mt-0.5 select-none">◆</span>
+                            <span class="text-sm font-bold text-[#374151] leading-relaxed">Bolo de Limão</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERABLES / FEATURES SECTION -->
+    <section class="py-16 bg-[#FFF2F4]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <h2 class="text-center text-3xl font-black text-brand-charcoal uppercase tracking-widest mb-12">
+                Você vai ganhar:
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Item 1: Aulas em HD -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-gray-300 flex flex-col items-center text-center space-y-6 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div class="w-20 h-20 text-brand-charcoal">
+                        <!-- Ícone de Tablet / Tela HD -->
+                        <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                            <text x="12" y="11" font-family="Montserrat" font-size="4" font-weight="black" fill="currentColor" text-anchor="middle">FULL HD</text>
+                        </svg>
+                    </div>
+                    <p class="text-lg font-bold text-brand-charcoal font-black leading-snug">
+                        Aulas gravadas em alta qualidade com todos os detalhes
+                    </p>
+                </div>
+
+                <!-- Item 2: Apostila -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-gray-300 flex flex-col items-center text-center space-y-6 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div class="w-20 h-20 text-brand-charcoal">
+                        <!-- Ícone de Livro Aberto -->
+                        <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <p class="text-lg font-bold text-brand-charcoal font-black leading-snug">
+                        Apostila completa, com detalhes para facilitar sua vida
+                    </p>
+                </div>
+
+                <!-- Item 3: Tempo de Acesso -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-gray-300 flex flex-col items-center text-center space-y-6 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div class="w-20 h-20 text-brand-charcoal">
+                        <!-- Ícone de Relógio com Seta de Retorno -->
+                        <svg viewBox="0 0 24 24" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                            <polyline points="12 7 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <p class="text-lg font-bold text-brand-charcoal font-black leading-snug">
+                        2 anos de acesso <br><span class="text-[#E86D80] text-sm font-black uppercase tracking-wider">(só pras 100 primeiras vagas)</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BONUS SECTION WITH ORIGINAL CAKE PIC AND NEW LIST ATTACHED -->
+    <section class="py-20 bg-white border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-16">
+            
+            <!-- Bloco 1: Estratégia de Vendas e Ilustração do Bolo Clássico -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                
+                <!-- Copy Persuasiva -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-[#374151] leading-snug tracking-tight">
+                        De <span class="text-[#E86D80]">BÔNUS</span>, você vai aprender minhas estratégias para vender muito!
+                    </h3>
+                    
+                    <p class="text-base text-gray-600 leading-relaxed font-medium">
+                        Como fechar parcerias com facilidade pra fazer degustações e receber muitos orçamentos e pedidos!
+                    </p>
+                </div>
+                
+                <!-- Ilustração do Bolo do Bônus (imagem6.webp) -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="p-2 bg-white rounded-3xl pink-outline-shadow border-2 border-[#FFF0F2] max-w-sm w-full">
+                        <img src="imagem6.webp" onerror="this.onerror=null; this.src='https://placehold.co/300x300/FFF2F4/FF8CA3?text=Bolo+Bonus'" alt="Bolo Bonus" class="w-full h-auto rounded-2xl">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Lista de Bônus adicionados de forma complementar -->
+            <div class="space-y-6">
+                
+                <!-- Bônus 1: Script de Vendas Automáticas -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 border border-pink-100 pink-outline-shadow flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FFF2F4] flex items-center justify-center text-3xl flex-shrink-0">
+                        💬
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg sm:text-xl font-extrabold text-brand-charcoal leading-snug">Script de Vendas Automáticas</h4>
+                        <p class="text-sm font-medium text-gray-500 leading-relaxed">
+                            Mensagens persuasivas prontas. É só copiar, colar no WhatsApp e ver os pedidos chegando.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bônus 2: Pack de Adesivos Profissionais -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 border border-pink-100 pink-outline-shadow flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FFF2F4] flex items-center justify-center text-3xl flex-shrink-0">
+                        🎨
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg sm:text-xl font-extrabold text-brand-charcoal leading-snug">Pack de Adesivos Profissionais</h4>
+                        <p class="text-sm font-medium text-gray-500 leading-relaxed">
+                            Templates no Canva para imprimir e colar nos baldes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bônus 3: Calculadora de Lucro -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 border border-pink-100 pink-outline-shadow flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-[#FFF2F4] flex items-center justify-center text-3xl flex-shrink-0">
+                        📊
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg sm:text-xl font-extrabold text-brand-charcoal leading-snug">Calculadora de Lucro</h4>
+                        <p class="text-sm font-medium text-gray-500 leading-relaxed">
+                            Planilha simples onde você digita os ingredientes e ela te dá o preço exato.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bônus 4: 8 Cursos Extras Gratuitos (Em destaque de alto relevo) -->
+                <div class="bg-[#FFF5F6] border-2 border-[#E86D80] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-6 hover:-translate-y-0.5 transition-transform duration-300">
+                    <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-4xl flex-shrink-0 shadow-sm">
+                        🎁
+                    </div>
+                    <div class="space-y-4 w-full">
+                        <h4 class="text-xl sm:text-2xl font-black text-[#BC3C53] uppercase tracking-wider leading-none">
+                            8 CURSOS EXTRAS GRATUITOS
+                        </h4>
+                        
+                        <!-- Coluna Dupla para as aulas extras para manter organizado -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-bold text-[#BC3C53]">
+                            <ul class="space-y-2">
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Bolos de Pote</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Brigadeiros</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Caseirinhos</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Geladinho</span>
+                                </li>
+                            </ul>
+                            <ul class="space-y-2">
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Copo da Felicidade</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Trufas Lucrativas</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Brownie</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-[#E86D80]">•</span>
+                                    <span>Ovos de Páscoa</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             
-            <div class="text-center mb-6">
-                <h1 style="font-size: 24px; line-height: 28px; font-weight: 800; margin-bottom: 8px; color: #1f2937;">
-                    Seu plano está <span style="color: #059669;">pronto.</span>
-                </h1>
-                <p style="font-size: 15px; line-height: 18px; color: #6b7280; font-weight: 600;">Leia com atenção abaixo!</p>
-            </div>
-            
-            <div class="text-center mb-6">
-                <p class="description" style="font-size: 16px;">
-                    🎉 <strong>Você vai transformar caseirinhos simples em decorados impecáveis, que encantam à primeira vista e aumentam muito o valor dos seus bolos!</strong>
-                </p>
-            </div>
-            
-            <!-- Imagem de Destaque do Bolo -->
-            <div class="image-container">
-                <img src="imagem1.webp" alt="Caseirinho Decorado Requintado" width="359" height="359" loading="lazy" decoding="async">
-            </div>
-            
-            <!-- Seção de Contexto -->
-            <div class="mb-6">
-                <h3 style="font-size: 20px; font-weight: 900; margin-bottom: 12px; color: #1f2937; text-align: left;">Todo mundo adora um bolo caseirinho...</h3>
-                <p class="description" style="margin-bottom: 12px; font-style: italic; color: #db2777; font-weight: 600;">...e quem sabe se destacar, sai na frente!</p>
-                <p class="description" style="text-align: left; margin-bottom: 16px;">
-                    Por isso, que os <strong>Caseirinhos Decorados</strong> são a melhor opção pra chamar atenção e aumentar muito as suas vendas de confeitaria de maneira prática e sem investimentos absurdos.
-                </p>
-                <a href="#planos-checkout" class="pink-text" style="font-weight: 800; text-decoration: none; font-size: 14px;" onclick="scrollToCheckout(event)">QUERO ME DESTACAR AGORA ➔</a>
-            </div>
-
-            <!-- Seção de Inspiração Visual -->
-            <div class="mb-6 py-6" style="border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6;">
-                <p style="font-size: 11px; font-weight: 800; color: #db2777; text-transform: uppercase; text-align: center; margin-bottom: 4px;">INSPIRAÇÃO VISUAL</p>
-                <h3 style="font-size: 18px; font-weight: 900; text-align: center; margin-bottom: 8px; text-transform: uppercase;">VEJA ALGUMAS DECORAÇÕES QUE VOCÊ VAI APRENDER</h3>
-                <p style="font-size: 11px; font-weight: 600; text-align: center; color: #9ca3af; margin-bottom: 20px;">DESLIZE PARA O LADO PARA VER OS DETALHES DE PERTINHO!</p>
-                
-                <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory;">
-                    <div style="flex: 0 0 160px; scroll-snap-align: start;">
-                        <img src="imagem3.webp" alt="Bolo Margaridas" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                    </div>
-                    <div style="flex: 0 0 160px; scroll-snap-align: start;">
-                        <img src="imagem5.webp" alt="Bolo Margarida Clássica" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                    </div>
-                    <div style="flex: 0 0 160px; scroll-snap-align: start;">
-                        <img src="imagem1.webp" alt="Bolo Rosas Glacê" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                    </div>
-                </div>
-            </div>
-
-            <div class="green-box">
-                <p class="green-text">
-                    ✅ <strong>E mais:</strong> você foi selecionada para receber nossos templates, mensagens prontas de vendas automáticas e calculadora inteligente de lucro!
-                </p>
-            </div>
-            
-            <!-- O Que Você Vai Aprender -->
-            <div class="mb-6">
-                <h2 style="font-size: 20px; font-weight: 900; text-align: center; margin-bottom: 4px; color: #1f2937; text-transform: uppercase; font-style: italic; line-height: 1.1;">O QUE VOCÊ VAI APRENDER COM A MARI:</h2>
-                <p style="font-size: 11px; text-align: center; font-weight: 600; color: #6b7280; text-transform: uppercase; margin-bottom: 24px;">TUDO O QUE VOCÊ PRECISA DOMINAR, DO ABSOLUTO ZERO AO ACABAMENTO PROFISSIONAL PERFEITO.</p>
-                
-                <div class="step-learning-card">
-                    <span class="step-badge">Passo 1</span>
-                    <h3 class="step-learning-title">Massas Fofinhas & Estruturadas</h3>
-                    <p class="step-learning-desc">O segredo científico de massas que sustentam decorações sem quebrar ou ressecar na geladeira.</p>
-                    <ul class="step-learning-bullets">
-                        <li><span class="check-icon">✓</span> Bolo de Cenoura super fofinho</li>
-                        <li><span class="check-icon">✓</span> Bolo de Chocolate estruturado</li>
-                        <li><span class="check-icon">✓</span> Bolo de Fubá com textura caseira irresistível</li>
-                        <li><span class="check-icon">✓</span> Bolo de Laranja & Limão aromáticos</li>
-                        <li><span class="check-icon">✓</span> Método de assamento plano sem criar "barriga"</li>
-                    </ul>
-                </div>
-
-                <div class="step-learning-card">
-                    <span class="step-badge">Passo 2</span>
-                    <h3 class="step-learning-title">Coberturas Porcelana & Caldas</h3>
-                    <p class="step-learning-desc">Caldas que dão aquele efeito brilhoso profissional, firme ao toque mas macio ao cortar.</p>
-                    <ul class="step-learning-bullets">
-                        <li><span class="check-icon">✓</span> Porcelana de Ninho clássica e cremosa</li>
-                        <li><span class="check-icon">✓</span> Efeito Porcelana Acetinada para brilho extra</li>
-                        <li><span class="check-icon">✓</span> Caldas brilhantes sem quebrar</li>
-                        <li><span class="check-icon">✓</span> Ponto ideal para o caimento perfeito das caldas</li>
-                        <li><span class="check-icon">✓</span> Conservação e validade das coberturas</li>
-                    </ul>
-                </div>
-
-                <div class="step-learning-card">
-                    <span class="step-badge">Passo 3</span>
-                    <h3 class="step-learning-title">Decorações de Luxo & Arte</h3>
-                    <p class="step-learning-desc">Detalhes e pinturas à mão que diferenciam o seu bolo de qualquer caseirinho simples comum.</p>
-                    <ul class="step-learning-bullets">
-                        <li><span class="check-icon">✓</span> Bordados delicados e Rendas coloridas</li>
-                        <li><span class="check-icon">✓</span> Rendas sobre a cobertura de porcelana</li>
-                        <li><span class="check-icon">✓</span> Flores volumosas lindas com bicos de confeitar</li>
-                        <li><span class="check-icon">✓</span> Pintura aquarelada delicada com corações e poás</li>
-                        <li><span class="check-icon">✓</span> Modelagem rápida de apliques de Pasta Americana</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Grade Detalhada -->
-            <div class="grade-section">
-                <p class="grade-title">CONTEÚDO COMPLETO</p>
-                <h3 class="grade-main-title">Grade Detalhada do Curso</h3>
-                
-                <div class="grade-column">
-                    <span class="grade-badge-header">(VÍDEO AULAS)</span>
-                    <h4 class="grade-col-title">Decorações</h4>
-                    <ul class="grade-list">
-                        <li>Bordado / Renda colorida</li>
-                        <li>Renda sobre porcelana</li>
-                        <li>Flores volumosas com bicos</li>
-                        <li>Pintura aquarelada</li>
-                        <li>Pintura Floral contorno</li>
-                        <li>Pintura delicada corações e poá</li>
-                        <li>Apliques Pasta Americana (flor, estrela, coração)</li>
-                        <li>Pintura metalizada</li>
-                    </ul>
-                </div>
-
-                <div class="grade-column">
-                    <span class="grade-badge-header">(VÍDEO AULAS)</span>
-                    <h4 class="grade-col-title">Coberturas</h4>
-                    <ul class="grade-list">
-                        <li>Porcelana ninho</li>
-                        <li>Porcelana ninho acetinada</li>
-                    </ul>
-                </div>
-
-                <div class="grade-column">
-                    <span class="grade-badge-header green" style="color: #059669;">(APOSTILA COMPLETA)</span>
-                    <h4 class="grade-col-title">Receitas Massas</h4>
-                    <ul class="grade-list" style="color: #059669;">
-                        <li><span style="color: #059669;">◆</span> Bolo de Cenoura</li>
-                        <li><span style="color: #059669;">◆</span> Bolo de Chocolate</li>
-                        <li><span style="color: #059669;">◆</span> Bolo de Fubá</li>
-                        <li><span style="color: #059669;">◆</span> Bolo de Laranja</li>
-                        <li><span style="color: #059669;">◆</span> Bolo de Limão</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- O Que Você Vai Ganhar -->
-            <div class="mb-6 py-6" style="border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; text-align: center;">
-                <h3 style="font-size: 18px; font-weight: 900; margin-bottom: 16px; text-transform: uppercase;">VOCÊ VAI GANHAR:</h3>
-                
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left; margin-bottom: 12px;">
-                    <div style="background-color: #fafafa; padding: 14px; border-radius: 8px;">
-                        <span style="font-size: 24px; display: block; margin-bottom: 6px;">📺</span>
-                        <h4 style="font-size: 12px; font-weight: 800; margin-bottom: 4px;">Aulas Gravadas</h4>
-                        <p style="font-size: 10px; color: #6b7280;">Em alta qualidade com todos os detalhes explicados.</p>
-                    </div>
-                    <div style="background-color: #fafafa; padding: 14px; border-radius: 8px;">
-                        <span style="font-size: 24px; display: block; margin-bottom: 6px;">📖</span>
-                        <h4 style="font-size: 12px; font-weight: 800; margin-bottom: 4px;">Apostila Completa</h4>
-                        <p style="font-size: 10px; color: #6b7280;">Com detalhes passo a passo para facilitar sua vida.</p>
-                    </div>
-                </div>
-                
-                <div style="background-color: #fafafa; padding: 14px; border-radius: 8px; text-align: center;">
-                    <span style="font-size: 24px; display: block; margin-bottom: 6px;">⏱</span>
-                    <h4 style="font-size: 12px; font-weight: 800; margin-bottom: 4px;">2 anos de acesso</h4>
-                    <p style="font-size: 10px; color: #db2777; font-weight: 800;">(SÓ PRAS 100 PRIMEIRAS VAGAS!)</p>
-                </div>
-            </div>
-
-            <!-- Seção de Bônus Estratégias -->
-            <div class="mb-6">
-                <p style="font-size: 15px; line-height: 22px; color: #374151; font-weight: 500; text-align: left; margin-bottom: 16px;">
-                    De <strong style="color: #db2777; font-weight: 900;">BÔNUS</strong>, você vai aprender minhas estratégias para vender muito!
-                </p>
-                <div class="image-container">
-                    <img src="imagem6.webp" alt="Bolo decorado requintado na janela" width="359" height="359" loading="lazy" decoding="async">
-                </div>
-                <p class="description" style="text-align: left; margin-bottom: 20px;">
-                    Como fechar parcerias com facilidade pra fazer degustações e receber dezenas de orçamentos e pedidos toda semana!
-                </p>
-            </div>
-
-            <!-- Bônus Premium Cards -->
-            <div class="bonus-premium-container">
-                <div class="bonus-card">
-                    <div class="bonus-icon">💬</div>
-                    <div class="bonus-content">
-                        <div class="bonus-title">Script de Vendas Automáticas</div>
-                        <div class="bonus-desc">Mensagens persuasivas prontas. É só copiar, colar no WhatsApp e ver os pedidos chegando na mesma hora.</div>
-                    </div>
-                </div>
-                
-                <div class="bonus-card">
-                    <div class="bonus-icon">🎨</div>
-                    <div class="bonus-content">
-                        <div class="bonus-title">Pack de Adesivos Profissionais</div>
-                        <div class="bonus-desc">Templates modernos no Canva prontos para imprimir, recortar e colar nos seus caseirinhos.</div>
-                    </div>
-                </div>
-                
-                <div class="bonus-card">
-                    <div class="bonus-icon">📊</div>
-                    <div class="bonus-content">
-                        <div class="bonus-title">Calculadora de Lucro</div>
-                        <div class="bonus-desc">Planilha onde você joga o valor que pagou nos ingredientes e ela calcula o preço exato de venda.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Caixa de 8 Cursos Extras -->
-            <div class="eight-courses-box">
-                <span style="font-size: 32px;">🎁</span>
-                <h3 class="eight-courses-title">8 Cursos Extras Totalmente Gratuitos</h3>
-                <p class="eight-courses-desc">Para você dominar a confeitaria e multiplicar ainda mais a sua renda, liberamos o acesso a mais 8 formações completas:</p>
-                <ul class="eight-courses-grid">
-                    <li>Bolos de Pote</li>
-                    <li>Copo da Felicidade</li>
-                    <li>Brigadeiros</li>
-                    <li>Trufas Lucrativas</li>
-                    <li>Caseirinhos</li>
-                    <li>Brownie</li>
-                    <li>Geladinho</li>
-                    <li>Ovos de Páscoa</li>
-                </ul>
-                
-                <a href="#planos-checkout" class="btn btn-primary" style="font-size: 13px; min-height: 44px; padding: 12px;" onclick="scrollToCheckout(event)">
-                    GARANTIR TODOS OS BÔNUS GRATUITOS
+            <div class="text-center pt-10">
+                <a href="#precos" class="inline-block px-8 py-4 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 tracking-wider uppercase font-black">
+                    Garantir Todos os Bônus Gratuitos
                 </a>
             </div>
+            
+        </div>
+    </section>
 
-            <div class="urgency-text" style="text-align: center; font-weight: 800; color: #dc2626; font-size: 15px; margin-bottom: 24px;">
-                Restam apenas <span class="red-text">6 vagas</span> com os Bônus Exclusivos.
+    <!-- TESTIMONIALS (WHATSAPP CONVERSATIONS STYLE) -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Resultados Reais</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mt-2">
+                    QUEM FAZ, VENDE E RECOMENDA!
+                </h2>
+                <p class="text-sm font-bold text-gray-400 uppercase tracking-wider mt-2">Veja os resultados das nossas alunas</p>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <!-- Resultados Reais / Depoimentos -->
-            <div class="mb-6 py-6" style="border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6;">
-                <p style="font-size: 11px; font-weight: 800; color: #db2777; text-align: center; margin-bottom: 4px; text-transform: uppercase;">RESULTADOS REAIS</p>
-                <h3 style="font-size: 18px; font-weight: 900; text-align: center; margin-bottom: 16px; text-transform: uppercase;">QUEM FAZ, VENDE E RECOMENDA!</h3>
-                <p style="font-size: 11px; font-weight: 600; text-align: center; color: #9ca3af; margin-bottom: 24px; text-transform: uppercase;">VEJA OS RESULTADOS DAS NOSSAS ALUNAS:</p>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">AD</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 pink-outline-shadow flex flex-col justify-between space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-[#E86D80] text-white font-bold flex items-center justify-center text-lg shadow-sm">
+                            AD
+                        </div>
                         <div>
-                            <h4 class="testimonial-name">Amanda Dias</h4>
-                            <span class="testimonial-tag">Aluna do Curso</span>
+                            <h4 class="font-extrabold text-brand-charcoal text-sm">Amanda Dias</h4>
+                            <span class="text-xs text-gray-400 font-bold">Aluna do Curso</span>
                         </div>
                     </div>
-                    <p class="testimonial-desc">
-                        "Mari, a sua apostila de R$ 17 é simplesmente um absurdo de boa! Fiz a receita de bolo de cenoura ontem para testar, fiz a cobertura de ninho e decorei com flores bem simples. Vendi 4 unidades em menos de 1 hora no meu trabalho! Muito obrigada por descomplicar!"
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed italic">
+                        "Mari, a sua apostila de R$ 17 é simplesmente um absurdo de boa! Fiz a receita de bolo de cenoura ontem para testar, fiz a cobertura de ninho e decorei com flores bem simples. Vendi as 4 unidades em menos de 1 hora no meu trabalho! Muito obrigada por descomplicar!"
                     </p>
-                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="flex items-center space-x-1 text-yellow-400">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">CL</div>
+                <!-- Depoimento 2 -->
+                <div class="bg-white p-6 rounded-3xl border border-gray-100 pink-outline-shadow flex flex-col justify-between space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-[#BC8448] text-white font-bold flex items-center justify-center text-lg shadow-sm">
+                            CL
+                        </div>
                         <div>
-                            <h4 class="testimonial-name">Clara Lemos</h4>
-                            <span class="testimonial-tag">Aluna Kit Premium</span>
+                            <h4 class="font-extrabold text-brand-charcoal text-sm">Clara Lemos</h4>
+                            <span class="text-xs text-gray-400 font-bold">Aluna Kit Premium</span>
                         </div>
                     </div>
-                    <p class="testimonial-desc">
+                    <p class="text-sm text-gray-600 font-medium leading-relaxed italic">
                         "Comprei o Kit Premium de R$ 27 com medo de ser mais do mesmo, mas as vídeo aulas são fantásticas! A técnica de pintura aquarelada deixou meus caseirinhos com cara de vitrine de shopping. Os clientes nem choram preço mais, compram pela beleza."
                     </p>
-                    <div class="testimonial-stars">★★★★★</div>
-                </div>
-            </div>
-
-            <!-- Garantia -->
-            <div style="text-align: center; margin-bottom: 32px;">
-                <h3 style="font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">GARANTIA TOTAL!</h3>
-                <div style="margin-bottom: 16px;">
-                    <img src="imagem8.webp" alt="Garantia de 7 dias" width="100" height="100" loading="lazy" decoding="async" style="margin: 0 auto;">
-                </div>
-                <p class="description" style="max-width: 320px; margin: 0 auto;">
-                    Você pode testar o curso por 7 dias e se não estiver feliz, te reembolsamos 100% do seu dinheiro, sem burocracia!
-                </p>
-            </div>
-
-            <!-- TABELA COMPARATIVA DE PREÇOS -->
-            <div id="planos-checkout" class="pricing-section">
-                <h3 class="pricing-title">O desconto é um presentão pra você!</h3>
-                <p class="pricing-subtitle">ESCOLHA O PLANO IDEAL PARA INICIAR HOJE</p>
-                
-                <!-- Plano 1: Apenas Apostila -->
-                <div class="plan-card">
-                    <span class="plan-header">Leve apenas as receitas escritas</span>
-                    <h4 class="plan-title">Apenas Apostila</h4>
-                    
-                    <div style="margin: 16px 0;">
-                        <p class="plan-price-old">De R$ 97</p>
-                        <p class="plan-price">R$ 17</p>
-                        <p class="plan-price-sub">Pagamento único sem mensalidades</p>
+                    <div class="flex items-center space-x-1 text-yellow-400">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
-
-                    <ul class="plan-features">
-                        <li><span class="check">✓</span> Apostila Completa de Receitas</li>
-                        <li><span class="check">✓</span> Segredos das 5 Massas de Mari</li>
-                        <li><span class="check">✓</span> Porcelana de Ninho & Caldas</li>
-                        <li class="disabled"><span class="cross">✗</span> Vídeo Aulas de Decoração</li>
-                        <li class="disabled"><span class="cross">✗</span> Estratégias de Parcerias & Vendas</li>
-                        <li class="disabled"><span class="cross">✗</span> Todos os 4 Super Bônus Inclusos</li>
-                    </ul>
-
-                    <!-- Link de Checkout Original Aplicado -->
-                    <a href="https://mariih.mycartpanda.com/checkout/210008855:1" target="_blank" class="btn" style="background-color: #374151; color: white;">
-                        QUERO SÓ A APOSTILA (R$ 17)
-                    </a>
-                </div>
-
-                <!-- Plano 2: Kit Premium (Recomendado) -->
-                <div class="plan-card recommended">
-                    <div class="recommended-badge">RECOMENDADO</div>
-                    <span class="plan-header" style="margin-top: 10px; display: block;">A experiência completa de confeitaria!</span>
-                    <h4 class="plan-title">Kit Premium</h4>
-                    
-                    <div style="margin: 16px 0;">
-                        <p class="plan-price-old">De R$ 297</p>
-                        <p class="plan-price green">R$ 27</p>
-                        <p class="plan-price-sub" style="color: #059669;">Tudo liberado imediatamente</p>
-                    </div>
-
-                    <ul class="plan-features">
-                        <li><span class="check">✓</span> 2 anos de acesso completo</li>
-                        <li><span class="check">✓</span> Gravação das aulas High Quality</li>
-                        <li><span class="check">✓</span> Apostila Completa Exclusiva</li>
-                        <li><span class="check">★</span> Bônus: Script de Vendas Automáticas</li>
-                        <li><span class="check">★</span> Bônus: Pack de Adesivos Profissionais</li>
-                        <li><span class="check">★</span> Bônus: Calculadora de Lucro Completa</li>
-                        <li><span class="check">★</span> Bônus: 8 Cursos Extras Gratuitos</li>
-                    </ul>
-
-                    <!-- Link de Checkout Original Aplicado -->
-                    <a href="https://mariih.mycartpanda.com/checkout/210008855:1" target="_blank" class="btn btn-success">
-                        GARANTIR KIT PREMIUM COMPLETO
-                    </a>
-                </div>
-            </div>
-
-            <!-- Seção de Leitura Adicional -->
-            <div class="mb-6" style="border-top: 1px solid #f3f4f6; padding-top: 24px; text-align: left;">
-                <h3 style="font-size: 18px; font-weight: 900; color: #db2777; text-transform: uppercase; text-align: center; margin-bottom: 12px;">Leia com Atenção!</h3>
-                <p class="description" style="margin-bottom: 12px;">
-                    O bolo caseirinho é a melhor porta de entrada para quem quer começar a faturar vendendo bolos artesanais e doces diferenciados.
-                </p>
-                <p class="description" style="margin-bottom: 12px;">
-                    É um produto muito mais em conta, que todo mundo adora e, quando ele vem decorado com requinte e profissionalismo, <strong style="color: #db2777;">ele é sucesso absoluto de vendas!</strong>
-                </p>
-                <p class="description">
-                    Com as técnicas exclusivas do meu curso de <strong>Caseirinhos Decorados</strong> e as minhas estratégias, você terá absolutamente tudo em mãos para produzir e vender muitos bolos semanalmente.
-                </p>
-            </div>
-
-            <!-- FAQ - DÚVIDAS FREQUENTES -->
-            <div class="faq-container">
-                <h3 class="faq-header">Ainda tem dúvidas?</h3>
-                
-                <div class="faq-item">
-                    <div class="faq-q">Como eu recebo o acesso ao material?</div>
-                    <div class="faq-a">Imediatamente após a confirmação do pagamento, você receberá um e-mail com suas informações de login e senha para acessar todo o conteúdo exclusivo pelo celular ou computador.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-q">Preciso ter batedeira ou utensílios caros?</div>
-                    <div class="faq-a">Não! Todo o nosso método foi desenhado para ser executado de maneira simples na cozinha doméstica comum, utilizando apenas assadeiras básicas e utensílios que você já possui.</div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-q">A apostila é em formato digital?</div>
-                    <div class="faq-a">Sim! A apostila é um arquivo digital em alta resolução em PDF, que você pode baixar no seu celular, tablet, computador ou imprimir quando desejar.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-q">O pagamento é seguro?</div>
-                    <div class="faq-a">Sim, o pagamento é processado por uma das plataformas mais seguras do Brasil, com criptografia ponta a ponta e total segurança para seus dados.</div>
-                </div>
-            </div>
-
-            <!-- Perfil da Autora -->
-            <div class="author-section">
-                <!-- Imagem do Autor usando a imagem que o usuário tiver da autora ou imagem1 de fallback -->
-                <img src="imagem1.webp" alt="Mari Confeiteira" class="author-avatar" loading="lazy" decoding="async">
-                <p class="author-title">Mari Confeiteira</p>
-                <h3 class="author-name">Mari Confeiteira</h3>
-                <p class="author-subtitle">APAixonada por descomplicar a confeitaria</p>
-                <p class="author-bio">
-                    Empreendedora confeiteira desde 2011 e mente criativa por trás da CAKE ME Mari em Taubaté - SP. Ficou amplamente conhecida no mercado de doces por descomplicar processos complexos para as confeiteiras em início de jornada. Este treinamento de Caseirinhos Decorados foi totalmente desenhado para colocar o seu negócio no trilho certo, oferecendo receitas testadas, decorações encantadoras e táticas expressas de vendas para quem deseja faturar no mercado de forma rápida, barata e sem dor de cabeça.
-                </p>
-            </div>
-
-            <!-- Rodapé e Políticas -->
-            <div class="footer">
-                <p>© 2026 Caseirinhos Decorados - Todos os direitos reservados.</p>
-                <div class="footer-links">
-                    <span>Termos de Uso</span>
-                    <span>•</span>
-                    <span>Políticas de Privacidade</span>
                 </div>
             </div>
         </div>
-        
-    </div>
+    </section>
 
+    <!-- GUARANTEE SECTION (imagem7.webp) -->
+    <section class="py-16 bg-[#FFF2F4] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8 z-10 relative">
+            <h2 class="text-3xl font-black text-brand-charcoal uppercase tracking-widest">
+                Garantia Total!
+            </h2>
+            
+            <!-- Selo Dourado de Garantia com correção de esticamento móvel -->
+            <div class="flex justify-center py-4">
+                <img src="imagem7.webp" onerror="this.onerror=null; this.src='https://placehold.co/160x160/FFF2F4/D97706?text=Selo+Garantia'" alt="Selo 100% Garantido" class="w-36 h-auto max-w-full object-contain">
+            </div>
+
+            <p class="text-lg sm:text-xl font-bold text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                Você pode testar o curso por 7 dias e se não estiver feliz, te reembolsamos 100% do seu dinheiro, sem burocracia!
+            </p>
+        </div>
+    </section>
+
+    <!-- TWO OFFERS PRICING SECTION -->
+    <section id="precos" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <h2 class="text-center text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mb-4">
+                O desconto é um Presentão pra você!
+            </h2>
+            <p class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-16">
+                Escolha o plano ideal para iniciar hoje
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+                
+                <!-- OFERTA 1: APENAS APOSTILA (R$ 17) -->
+                <div class="bg-white rounded-3xl border-2 border-gray-200 p-8 flex flex-col justify-between space-y-8 relative transform hover:scale-102 transition-transform duration-300 shadow-lg">
+                    
+                    <div class="text-center space-y-4">
+                        <span class="block text-xl font-black uppercase tracking-widest text-gray-500">APENAS APOSTILA</span>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Leve apenas as receitas escritas</p>
+                        
+                        <hr class="border-gray-100">
+
+                        <div class="space-y-1 py-4">
+                            <span class="block text-sm text-gray-400 font-bold line-through">De R$ 97</span>
+                            <div class="flex items-center justify-center space-x-2">
+                                <span class="text-2xl font-black text-brand-charcoal">R$</span>
+                                <span class="text-6xl font-black text-brand-charcoal tracking-tight">17</span>
+                            </div>
+                            <span class="block text-xs font-bold text-gray-400 uppercase tracking-wider">pagamento único sem mensalidades</span>
+                        </div>
+
+                        <hr class="border-gray-100">
+                    </div>
+
+                    <!-- Lista de Benefícios -->
+                    <ul class="space-y-4 font-bold text-sm text-gray-500">
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>Apostila Completa de Receitas</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>Segredos das 5 Massas de Mari</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>Porcelana de Ninho & Fondant</span>
+                        </li>
+                        <li class="text-gray-300 flex items-center space-x-3 line-through">
+                            <span>✗</span>
+                            <span>Vídeo Aulas de Decoração</span>
+                        </li>
+                        <li class="text-gray-300 flex items-center space-x-3 line-through">
+                            <span>✗</span>
+                            <span>Estratégias de Parcerias & Vendas</span>
+                        </li>
+                        <li class="text-gray-300 flex items-center space-x-3 line-through">
+                            <span>✗</span>
+                            <span>Todos os 4 Super Bônus Inclusos</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTAs Interativos -->
+                    <div class="space-y-3 pt-4">
+                        <a href="https://mari-confeiteira.pay.yampi.com.br/r/GQK8RKE7T1" target="_blank" class="block w-full text-center py-4 bg-gray-700 hover:bg-brand-charcoal text-white font-extrabold text-sm rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 tracking-wider uppercase font-black">
+                            Quero Só a Apostila (R$ 17)
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- OFERTA 2: KIT PREMIUM COMPLETO (R$ 27) -->
+                <div class="bg-white rounded-3xl border-4 border-[#FF1493] p-8 flex flex-col justify-between space-y-8 relative transform hover:scale-102 transition-transform duration-300 shadow-[0_0_25px_rgba(255,20,147,0.4)] z-10">
+                    
+                    <!-- Badge de Melhor Opção -->
+                    <div class="absolute top-0 right-1/2 transform translate-x-1/2 -translate-y-1/2 bg-[#FF1493] text-white text-xs font-black uppercase px-6 py-2 rounded-full tracking-widest shadow-[0_0_10px_rgba(255,20,147,0.5)]">
+                        RECOMENDADO
+                    </div>
+
+                    <div class="text-center space-y-4">
+                        <span class="block text-2xl font-black uppercase tracking-widest text-[#E86D80]">KIT PREMIUM</span>
+                        <p class="text-xs font-bold text-[#E86D80] uppercase tracking-wider font-extrabold">A experiência completa de confeitaria!</p>
+                        
+                        <hr class="border-brand-charcoal opacity-20">
+
+                        <div class="space-y-1 py-4">
+                            <span class="block text-sm text-gray-400 font-bold line-through">De R$ 297</span>
+                            <div class="flex items-center justify-center space-x-2">
+                                <span class="text-2xl font-black text-brand-charcoal">R$</span>
+                                <span class="text-6xl font-black text-brand-charcoal tracking-tight">27</span>
+                            </div>
+                            <span class="block text-xs font-bold text-[#E86D80] uppercase tracking-wider font-extrabold">tudo liberado imediatamente</span>
+                        </div>
+
+                        <hr class="border-brand-charcoal opacity-20">
+                    </div>
+
+                    <!-- Lista de Benefícios do Kit Completo de 27 -->
+                    <ul class="space-y-4 font-bold text-sm text-brand-charcoal">
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>2 ANOS DE ACESSO COMPLETO</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>GRAVAÇÃO DAS AULAS HIGH QUALITY</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-brand-greenCTA text-xl">✓</span>
+                            <span>APOSTILA COMPLETA EXCLUSIVA</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">★</span>
+                            <span>Bônus: Script de Vendas Automáticas</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">★</span>
+                            <span>Bônus: Pack de Adesivos Profissionais</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">★</span>
+                            <span>Bônus: Calculadora de Lucro Completa</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-[#E86D80] text-xl">🎁</span>
+                            <span>Bônus: 8 Cursos Extras Gratuitos</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTAs Interativos -->
+                    <div class="space-y-3 pt-4">
+                        <a href="https://mari-confeiteira.pay.yampi.com.br/r/60E47HEKUS" target="_blank" class="block w-full text-center py-4 bg-brand-greenCTA hover:bg-brand-greenCTA_hover text-white font-extrabold text-sm rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 tracking-wider uppercase font-black">
+                            Garantir Kit Premium Completo
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ATTENTION SECTION (imagem8.webp) -->
+    <section class="py-16 bg-[#FFF2F4]">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+                
+                <!-- Ilustração do Bolo Rendilhado (imagem8.webp) -->
+                <div class="md:col-span-5 flex justify-center order-last md:order-first">
+                    <div class="p-2 bg-white rounded-3xl pink-outline-shadow border-2 border-[#FFF0F2] max-w-sm w-full">
+                        <img src="imagem8.webp" onerror="this.onerror=null; this.src='https://placehold.co/300x300/FFF2F4/3D2513?text=Bolo+Atencao'" alt="Bolo Decorado" class="w-full h-auto rounded-2xl">
+                    </div>
+                </div>
+
+                <!-- Conteúdo de Atenção -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <h2 class="text-3xl font-black text-brand-charcoal uppercase tracking-wider">
+                        Leia com atenção!
+                    </h2>
+                    <p class="text-lg font-semibold text-gray-700 leading-relaxed">
+                        O bolo caseirinho é a <strong class="text-[#E86D80] font-black">melhor porta de entrada</strong> para quem quer começar a faturar vendendo bolos artesanais e doces diferenciados.
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed font-medium">
+                        É um produto muito mais em conta, que todo mundo adora e, quando ele vem decorado com requinte e profissionalismo... <span class="text-[#E86D80] font-black uppercase">aí é sucesso absoluto de vendas!</span>
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed font-medium">
+                        Com as técnicas exclusivas do meu curso de Caseirinhos Decorados e as minhas estratégias, você terá absolutamente tudo em mãos para vender muitos bolos semanalmente.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (FREQUENTLY ASKED QUESTIONS) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-[#E86D80] uppercase tracking-[0.25em]">Dúvidas Frequentes</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-brand-charcoal uppercase tracking-widest mt-2">
+                    PERGUNTAS FREQUENTES
+                </h2>
+                <div class="w-16 h-1 bg-[#E86D80] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Pergunta 1 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(1)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>Como eu recebo o acesso ao material?</span>
+                        <span id="faq-icon-1" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-1" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        O envio é feito de forma 100% automática e imediata no seu e-mail e WhatsApp logo após a confirmação do pagamento. Pagamentos via PIX ou Cartão liberam em menos de 2 minutos.
+                    </div>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(2)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>Preciso ter batedeira ou utensílios caros?</span>
+                        <span id="faq-icon-2" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-2" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        De forma alguma! O curso foi totalmente estruturado para quem está começando da cozinha de casa. Você só vai precisar de utensílios básicos que provavelmente já tem ou encontra baratinho em qualquer mercado.
+                    </div>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(3)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>A apostila é em formato digital?</span>
+                        <span id="faq-icon-3" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-3" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        Sim! É uma Apostila Completa digital super ilustrada e organizada para que você possa abrir no seu celular, tablet ou computador na hora de confeitar, e se quiser, também pode imprimir de forma rápida.
+                    </div>
+                </div>
+
+                <!-- Pergunta 4 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFAQ(4)" class="w-full text-left p-6 font-bold text-base text-brand-charcoal flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors">
+                        <span>O pagamento é seguro?</span>
+                        <span id="faq-icon-4" class="text-xl text-[#E86D80] transition-transform duration-300">＋</span>
+                    </button>
+                    <div id="faq-ans-4" class="hidden p-6 pt-0 text-sm font-medium text-gray-500 border-t border-gray-100 leading-relaxed">
+                        Sim, 100% seguro! Seus dados de pagamento são protegidos por criptografia de ponta de nível bancário e processados de forma rápida e segura.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT THE AUTHOR SECTION -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8">
+            
+            <!-- Foto Circular Ilustrativa com Nome Curvo -->
+            <div class="relative inline-block mt-12">
+                <!-- Nome em curva em cima (whitespace-nowrap impede quebras indesejadas no mobile) -->
+                <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-max text-center z-10">
+                    <span class="font-handwritten text-4xl text-brand-charcoal block tracking-wide whitespace-nowrap">Mari Confeiteira ❤️</span>
+                </div>
+                <!-- Círculo com Ilustração da Mari (imagem9.webp) -->
+                <div class="w-48 h-48 rounded-full border-4 border-[#FFF0F2] pink-outline-shadow overflow-hidden bg-[#FFF2F4] mx-auto relative z-0">
+                    <img src="imagem9.webp" onerror="this.onerror=null; this.src='https://placehold.co/200x200/FFF2F4/E86D80?text=Mari+Profile'" alt="Mari Confeiteira" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Texto de Biografia Centrado -->
+            <div class="space-y-6 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-black text-brand-charcoal">Mari Confeiteira</h3>
+                <p class="text-xs font-bold text-[#E86D80] uppercase tracking-widest">Apaixonada por Descomplicar a Confeitaria</p>
+                
+                <div class="text-sm sm:text-base text-gray-600 leading-relaxed font-medium space-y-4">
+                    <p>
+                        Empreendedora confeiteira desde 2011 e mente criativa por trás da <strong class="text-brand-charcoal font-bold">CAKE ME Mari</strong> em Taubaté - SP. Ficou amplamente conhecida no mercado de doces por descomplicar processos complexos para as confeiteiras em início de jornada.
+                    </p>
+                    <p>
+                        Este treinamento de <strong class="text-[#E86D80] font-black">Caseirinhos Decorados</strong> foi totalmente desenhado para colocar o seu negócio no trilho certo, oferecendo receitas testadas, decorações encantadoras e táticas expressas de vendas para quem deseja faturar no mercado de forma rápida, barata e sem dor de cabeça!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Logo Redondo de Encerramento (imagem10.webp) -->
+            <div class="pt-10 flex justify-center">
+                <div class="w-20 h-20 rounded-full border-2 border-pink-200 p-1 bg-white shadow-sm flex items-center justify-center overflow-hidden">
+                    <img src="imagem10.webp" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFF2F4/E86D80?text=Mari+Logo'" alt="Mari Logo" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL FOOTER -->
+    <footer class="bg-brand-charcoal text-white py-12 text-xs font-medium border-t border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6">
+            <p class="text-gray-400">
+                © <span id="current-year"></span> Mari Confeiteira - Todos os direitos reservados.
+            </p>
+            <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                Este site não faz parte do site do Facebook ou Facebook Inc. Além disso, este site NÃO é endossado pelo Facebook de forma alguma. FACEBOOK é uma marca comercial da FACEBOOK, Inc. Todas as informações contidas aqui são de responsabilidade exclusiva dos organizadores.
+            </p>
+            <div class="flex justify-center space-x-6 text-gray-400 font-bold">
+                <a href="#precos" class="hover:text-brand-pinkDark transition-colors">Termos de Uso</a>
+                <span>•</span>
+                <a href="#precos" class="hover:text-brand-pinkDark transition-colors">Políticas de Privacidade</a>
+                <span>•</span>
+                <a href="#precos" class="hover:text-brand-pinkDark transition-colors">Suporte</a>
+            </div>
+            <p class="text-gray-600 text-[10px]">
+                CNPJ: 00.000.000/0001-00 - CAKE ME MARI LTDA - Taubaté - SP
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC FOR CHECKOUT, DATES, FAQ AND 3D CAROUSEL -->
     <script>
-        let currentStep = 0;
+        // Executar toda a inicialização assim que o DOM estiver carregado
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Atualizar data de expiração automaticamente baseada na data atual do sistema
+            const options = { day: 'numeric', month: 'long' };
+            const todayStr = new Date().toLocaleDateString('pt-BR', options);
+            const expiryEl = document.getElementById('current-expiry-date');
+            if (expiryEl) expiryEl.innerText = todayStr;
 
-        function showStep(stepNumber, animate) {
-            try {
-                const stepEl = document.getElementById('step-' + stepNumber);
-                if (!stepEl) return;
+            // Atualizar ano automaticamente no footer
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) yearEl.innerText = new Date().getFullYear();
 
-                stepEl.classList.add('active');
-                if (animate) {
-                    stepEl.classList.add('animate');
-                } else {
-                    stepEl.classList.remove('animate');
-                }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } catch(e) {
-                console.error('Erro ao mostrar etapa:', e);
-            }
-        }
+            // 2. LÓGICA DO CARROSSEL 3D COVERFLOW (CORRIGIDA E CENTRALIZADA)
+            const carouselContainer = document.getElementById('carousel-3d-container');
+            const cards = document.querySelectorAll('.carousel-card');
+            const dotsContainer = document.getElementById('carousel-dots-container');
+            
+            if (carouselContainer && cards.length > 0 && dotsContainer) {
+                let activeIndex = 0;
+                let carouselTimer = null;
+                const totalCards = cards.length;
 
-        function nextStep() {
-            try {
-                const currentStepEl = document.getElementById('step-' + currentStep);
-                if (!currentStepEl) return;
+                // Criar indicadores (bolinhas) de forma dinâmica
+                cards.forEach((_, idx) => {
+                    const dot = document.createElement('button');
+                    dot.className = `w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-[#E86D80] w-6' : 'bg-gray-300'}`;
+                    dot.setAttribute('aria-label', `Ir para slide ${idx + 1}`);
+                    dot.addEventListener('click', () => {
+                        activeIndex = idx;
+                        update3DCarousel();
+                        resetAutoplay();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
 
-                currentStepEl.classList.add('step-out');
-                setTimeout(function () {
-                    currentStepEl.classList.remove('active');
-                    currentStepEl.classList.remove('animate');
-                    currentStepEl.classList.remove('step-out');
+                const dots = dotsContainer.querySelectorAll('button');
 
-                    currentStep = currentStep + 1;
-                    showStep(currentStep, true);
-                }, 200);
-            } catch(e) {
-                console.error('Erro ao avançar etapa:', e);
-            }
-        }
+                function update3DCarousel() {
+                    cards.forEach((card, index) => {
+                        // Cálculo de distância circular/cíclica do card ativo
+                        let offset = index - activeIndex;
+                        
+                        // Tratar contorno cíclico infinito do array
+                        if (offset < -Math.floor(totalCards / 2)) offset += totalCards;
+                        if (offset > Math.floor(totalCards / 2)) offset -= totalCards;
 
-        function selectOption(btnElement) {
-            try {
-                btnElement.classList.add('selected');
+                        // Aplicar estilos com base na posição
+                        if (offset === 0) {
+                            // Card Ativo (Centro e Frente)
+                            card.style.transform = 'translateX(0) scale(1) translateZ(0) rotateY(0deg)';
+                            card.style.zIndex = '30';
+                            card.style.opacity = '1';
+                            card.style.pointerEvents = 'auto';
+                        } else if (offset === 1) {
+                            // Card da Direita (Atrás do principal)
+                            card.style.transform = 'translateX(65%) scale(0.8) translateZ(-150px) rotateY(-20deg)';
+                            card.style.zIndex = '20';
+                            card.style.opacity = '0.65';
+                            card.style.pointerEvents = 'none';
+                        } else if (offset === -1) {
+                            // Card da Esquerda (Atrás do principal)
+                            card.style.transform = 'translateX(-65%) scale(0.8) translateZ(-150px) rotateY(20deg)';
+                            card.style.zIndex = '20';
+                            card.style.opacity = '0.65';
+                            card.style.pointerEvents = 'none';
+                        } else {
+                            // Cards invisíveis escondidos nas extremidades
+                            const dir = offset > 0 ? 1 : -1;
+                            card.style.transform = `translateX(${dir * 120}%) scale(0.6) translateZ(-300px) rotateY(${dir * -30}deg)`;
+                            card.style.zIndex = '10';
+                            card.style.opacity = '0';
+                            card.style.pointerEvents = 'none';
+                        }
+                    });
 
-                const parentStep = btnElement.closest('.step');
-                if (parentStep) {
-                    parentStep.querySelectorAll('.option-btn').forEach(function (btn) {
-                        btn.disabled = true;
-                        btn.style.cursor = 'not-allowed';
+                    // Atualizar as bolinhas indicadoras
+                    dots.forEach((dot, idx) => {
+                        if (idx === activeIndex) {
+                            dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 bg-[#E86D80] w-6';
+                        } else {
+                            dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 bg-gray-300';
+                        }
                     });
                 }
 
-                setTimeout(function () {
-                    nextStep();
-                    setTimeout(function () {
-                        if (parentStep) {
-                            parentStep.querySelectorAll('.option-btn').forEach(function (btn) {
-                                btn.disabled = false;
-                                btn.style.cursor = 'pointer';
-                            });
+                // Clique direto nos cards laterais para passar o slide
+                cards.forEach((card, idx) => {
+                    card.addEventListener('click', () => {
+                        if (idx !== activeIndex) {
+                            activeIndex = idx;
+                            update3DCarousel();
+                            resetAutoplay();
                         }
-                        btnElement.classList.remove('selected');
-                    }, 500);
-                }, 120);
-            } catch (e) {
-                console.error('Erro ao selecionar opcao:', e);
-            }
-        }
+                    });
+                });
 
-        function preloadQuizImages() {
-            ['imagem2.webp', 'imagem3.webp', 'imagem4.webp', 'imagem5.webp', 'imagem6.webp'].forEach(function (src) {
-                const img = new Image();
-                img.decoding = 'async';
-                img.src = src;
-            });
-        }
-
-        function scrollToCheckout(event) {
-            event.preventDefault();
-            const target = document.getElementById('planos-checkout');
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            showStep(0, false);
-
-            // Gerar Data de Urgência Dinâmica com base no calendário real
-            try {
-                const meses = [
-                    "janeiro", "fevereiro", "março", "abril", "maio", "junho",
-                    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
-                ];
-                const hoje = new Date();
-                const dia = hoje.getDate();
-                const mes = meses[hoje.getMonth()];
-                const el = document.getElementById('data-limite');
-                if(el) {
-                    el.textContent = `hoje, dia ${dia} de ${mes}`;
+                // Autoplay inteligente
+                function startAutoplay() {
+                    carouselTimer = setInterval(() => {
+                        activeIndex = (activeIndex + 1) % totalCards;
+                        update3DCarousel();
+                    }, 3000);
                 }
-            } catch (e) {}
 
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(preloadQuizImages, { timeout: 2500 });
-            } else {
-                setTimeout(preloadQuizImages, 1500);
+                // Parar e reiniciar timer ao interagir manualmente
+                function resetAutoplay() {
+                    clearInterval(carouselTimer);
+                    startAutoplay();
+                }
+
+                // Suporte a gestos touch (Swipe) no celular
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                carouselContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    clearInterval(carouselTimer); // Pausa ao interagir
+                }, { passive: true });
+
+                carouselContainer.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                    startAutoplay(); // Resume após interagir
+                }, { passive: true });
+
+                function handleSwipe() {
+                    const swipeThreshold = 50; // distância mínima de arraste
+                    if (touchStartX - touchEndX > swipeThreshold) {
+                        // Swipe Esquerda -> Próximo Card
+                        activeIndex = (activeIndex + 1) % totalCards;
+                        update3DCarousel();
+                    } else if (touchEndX - touchStartX > swipeThreshold) {
+                        // Swipe Direita -> Card Anterior
+                        activeIndex = (activeIndex - 1 + totalCards) % totalCards;
+                        update3DCarousel();
+                    }
+                }
+
+                // Inicializar carrossel 3D de imediato
+                update3DCarousel();
+                startAutoplay();
             }
         });
+
+        // 3. Lógica do FAQ (Expandir/Recolher)
+        function toggleFAQ(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (ans && icon) {
+                if (ans.classList.contains('hidden')) {
+                    ans.classList.remove('hidden');
+                    icon.innerText = '－';
+                    icon.classList.add('rotate-180');
+                } else {
+                    ans.classList.add('hidden');
+                    icon.innerText = '＋';
+                    icon.classList.remove('rotate-180');
+                }
+            }
+        }
     </script>
+
 </body>
 </html>
